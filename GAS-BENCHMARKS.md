@@ -1,4 +1,4 @@
-# Gas Benchmarks — Backpressure Economics Protocol
+# Gas Benchmarks - Backpressure Economics Protocol
 
 Measured on Foundry (Solidity 0.8.26, Cancun EVM) using `forge test --match-contract GasBenchmark -vv`.
 
@@ -31,7 +31,7 @@ Measured on Foundry (Solidity 0.8.26, Cancun EVM) using `forge test --match-cont
 | 50 | 114,227 | 2,285 |
 | 100 | 225,248 | 2,252 |
 
-Linear scaling — O(n) with ~2,250-2,950 gas per sink. No algorithmic bottleneck for practical pool sizes.
+Linear scaling - O(n) with ~2,250-2,950 gas per sink. No algorithmic bottleneck for practical pool sizes.
 
 ## Deployment Costs
 

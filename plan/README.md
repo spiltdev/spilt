@@ -1,6 +1,6 @@
-# Backpressure Economics (BPE) — Project Plan Directory
+# Backpressure Economics (BPE) - Project Plan Directory
 
-This directory contains all planning documents, blueprints, and specifications for the Backpressure Economics project. These documents are designed to be self-contained — an implementing agent should be able to build from these alone.
+This directory contains all planning documents, blueprints, and specifications for the Backpressure Economics project. These documents are designed to be self-contained - an implementing agent should be able to build from these alone.
 
 ## Project Overview
 
@@ -8,10 +8,10 @@ This directory contains all planning documents, blueprints, and specifications f
 
 ## Deliverables
 
-1. **Academic Paper** — Formal theoretical contribution grounded in network optimization mathematics
-2. **Protocol Specification** — Technical specification for the BPE Protocol, built on Superfluid Distribution Pools on Base (EVM L2)
-3. **Reference Implementation** — Smart contracts + off-chain services + agent SDK
-4. **Simulation** — Agent-based model for paper results
+1. **Academic Paper** - Formal theoretical contribution grounded in network optimization mathematics
+2. **Protocol Specification** - Technical specification for the BPE Protocol, built on Superfluid Distribution Pools on Base (EVM L2)
+3. **Reference Implementation** - Smart contracts + off-chain services + agent SDK
+4. **Simulation** - Agent-based model for paper results
 
 ## Document Index
 

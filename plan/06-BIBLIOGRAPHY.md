@@ -43,12 +43,12 @@
 ## Monetary Theory
 
 ### Gesell (1916)
-"The Natural Economic Order" — demurrage / stamp-scrip concept
+"The Natural Economic Order" - demurrage / stamp-scrip concept
 - **Role**: Stock-based velocity mechanism (holding tax).
 - **BPE usage**: Contrast: demurrage = stock-based velocity, BPE = flow-based allocation. Orthogonal.
 
 ### Fisher (1933)
-"Stamp Scrip" — formalization of Gesellian demurrage
+"Stamp Scrip" - formalization of Gesellian demurrage
 - **Role**: Economic formalization of timed currency decay.
 - **BPE usage**: Historical context. MV=PQ decomposition.
 
@@ -67,5 +67,5 @@
 - Card-network auth for agent spending. No capacity-awareness.
 
 ### Cha et al. (2025)
-"STP: Self-play LLM Token Pricing" — LLM compute pricing via self-play
+"STP: Self-play LLM Token Pricing" - LLM compute pricing via self-play
 - **BPE usage**: Complementary. Could inform future pricing layer (v0.2).

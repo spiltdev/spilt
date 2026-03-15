@@ -1,5 +1,5 @@
 /**
- * full-flow.ts — End-to-end BPE example on Base Sepolia.
+ * full-flow.ts - End-to-end BPE example on Base Sepolia.
  *
  * Demonstrates the complete lifecycle:
  *   1. Register a task type and GDA pool
@@ -75,7 +75,7 @@ async function waitForTx(hash: Hex, label: string) {
 // ─── Main Flow ───
 
 async function main() {
-  console.log(`\nBPE Full Flow — Base Sepolia`);
+  console.log(`\nBPE Full Flow - Base Sepolia`);
   console.log(`Account: ${account.address}\n`);
 
   // ── Step 1: Register task type + create pool ──

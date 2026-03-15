@@ -2,13 +2,13 @@
 
 **Title**: Backpressure Economics: Capacity-Constrained Monetary Flow Control for Agent Economies
 
-**Target**: ACM CCS / IEEE S&P / FC (Financial Cryptography) — theoretical contribution + systems paper
+**Target**: ACM CCS / IEEE S&P / FC (Financial Cryptography) - theoretical contribution + systems paper
 
 ---
 
 ## Section 1: Introduction (2 pages)
-- Motivating example: three-stage AI agent pipeline — transcription → summarization → report generation — where the summarizer hits GPU limits and payment continues flowing into a bottleneck
-- Problem statement: streaming payment protocols lack flow control; money cannot be "dropped" like data packets — requires new routing primitives
+- Motivating example: three-stage AI agent pipeline - transcription → summarization → report generation - where the summarizer hits GPU limits and payment continues flowing into a bottleneck
+- Problem statement: streaming payment protocols lack flow control; money cannot be "dropped" like data packets - requires new routing primitives
 - Contribution summary: (1) formal model, (2) throughput optimality proof, (3) protocol design, (4) simulation
 
 ## Section 2: Background & Related Work (3 pages)
@@ -29,7 +29,7 @@
 
 ### 2.4 Demurrage Economics
 - Gesell (1916), Fisher (1933): stock-based velocity mechanisms
-- Position: BPE is flow-based *allocation* — orthogonal to demurrage's velocity
+- Position: BPE is flow-based *allocation* - orthogonal to demurrage's velocity
 
 ### 2.5 Sender-Side Capacity Awareness
 - AMMs as sender-side routing (Uniswap, Curve)
@@ -64,7 +64,7 @@ F(e, t): payment flow rate on edge e at time t
 
 ## Section 4: Throughput Optimality (3 pages)
 ### 4.1 Lyapunov Function
-- L(t) = Σ_K Q(K,t)² — sum of squared virtual queue backlogs
+- L(t) = Σ_K Q(K,t)² - sum of squared virtual queue backlogs
 - Drift: Δ(t) = E[L(t+1) - L(t) | Q(t)]
 
 ### 4.2 Main Theorem

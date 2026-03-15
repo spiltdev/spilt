@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# build-site.sh — Assemble website content from source docs, then build with MkDocs.
+# build-site.sh - Assemble website content from source docs, then build with MkDocs.
 # Usage: ./scripts/build-site.sh [--serve]
 set -euo pipefail
 cd "$(dirname "$0")/.."

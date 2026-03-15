@@ -4,13 +4,13 @@
 
 ## What's Genuinely Novel
 
-1. **Domain Transfer: Network Backpressure → Monetary Flow Control** — Nobody has applied Tassiulas-Ephremides backpressure routing to monetary flows in token economies. Backpressure routing (1992+), congestion pricing (Kelly 1998), and streaming payments (Superfluid 2020+) exist independently. No work unifies all three.
+1. **Domain Transfer: Network Backpressure → Monetary Flow Control** - Nobody has applied Tassiulas-Ephremides backpressure routing to monetary flows in token economies. Backpressure routing (1992+), congestion pricing (Kelly 1998), and streaming payments (Superfluid 2020+) exist independently. No work unifies all three.
 
-2. **Demurrage-Backpressure Distinction** — Demurrage: stock-based, time-decay, drives uniform velocity. Backpressure: flow-based, capacity-constraint, drives allocation efficiency. Orthogonal axes, complementary mechanisms.
+2. **Demurrage-Backpressure Distinction** - Demurrage: stock-based, time-decay, drives uniform velocity. Backpressure: flow-based, capacity-constraint, drives allocation efficiency. Orthogonal axes, complementary mechanisms.
 
-3. **AI Agent Pipeline with Upstream Propagation** — Multi-agent pipelines naturally exhibit backpressure dynamics (slow downstream → upstream throttles). No existing agent payment protocol addresses flow control.
+3. **AI Agent Pipeline with Upstream Propagation** - Multi-agent pipelines naturally exhibit backpressure dynamics (slow downstream → upstream throttles). No existing agent payment protocol addresses flow control.
 
-4. **Timing** — Agent payment ecosystem (March 2026): Google AP2, Coinbase x402, OpenAI-Stripe ACP, Visa TAP all focus on authorization/trust. None address flow control.
+4. **Timing** - Agent payment ecosystem (March 2026): Google AP2, Coinbase x402, OpenAI-Stripe ACP, Visa TAP all focus on authorization/trust. None address flow control.
 
 ## What's NOT Novel (Acknowledge)
 

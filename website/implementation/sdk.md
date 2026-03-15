@@ -10,10 +10,10 @@ npm install @spilt/sdk
 
 ## Features
 
-- **Contract ABIs** — Pre-compiled ABIs for all BPE contracts
-- **Type-safe interactions** — Full TypeScript types via [viem](https://viem.sh/)
-- **Helper functions** — Common operations like capacity signal computation and stream management
-- **Address registry** — Deployed contract addresses for supported networks
+- **Contract ABIs** - Pre-compiled ABIs for all BPE contracts
+- **Type-safe interactions** - Full TypeScript types via [viem](https://viem.sh/)
+- **Helper functions** - Common operations like capacity signal computation and stream management
+- **Address registry** - Deployed contract addresses for supported networks
 
 ## Usage
 

@@ -27,7 +27,7 @@ interface IGDAv1Forwarder {
 ///         rebalance, wrap payment tokens, connect to pool, and start a GDA distribution flow.
 ///         Usage: forge script script/RegisterAndStream.s.sol --rpc-url base_sepolia --broadcast
 ///
-///         Requires prior deployment — set these env vars:
+///         Requires prior deployment - set these env vars:
 ///           DEPLOYER_PRIVATE_KEY, STAKE_TOKEN, STAKE_MANAGER,
 ///           CAPACITY_REGISTRY, BACKPRESSURE_POOL, PAYMENT_TOKEN, PAYMENT_SUPER_TOKEN
 contract RegisterAndStream is Script {

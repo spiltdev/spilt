@@ -10,7 +10,7 @@ from pathlib import Path
 try:
     import pypandoc
 except ImportError:
-    print("  pypandoc not installed — run: pip install pypandoc_binary")
+    print("  pypandoc not installed - run: pip install pypandoc_binary")
     sys.exit(1)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -153,7 +153,7 @@ def convert_figures():
     try:
         import fitz  # PyMuPDF
     except ImportError:
-        print("  pymupdf not installed — run: pip install pymupdf")
+        print("  pymupdf not installed - run: pip install pymupdf")
         print("  figures will not be converted to PNG")
         return
 

@@ -148,7 +148,7 @@ contract OffchainAggregatorTest is Test {
         vm.prank(relayer);
         aggregator.submitBatch(batch1);
 
-        // Same nonce — should be silently rejected (emits AttestationRejected)
+        // Same nonce - should be silently rejected (emits AttestationRejected)
         uint256 smoothedBefore = registry.getSmoothedCapacity(TASK_ID, sink1);
 
         IOffchainAggregator.SignedAttestation[] memory batch2 = new IOffchainAggregator.SignedAttestation[](1);

@@ -23,7 +23,7 @@ interface IPricingCurve {
 
     /// @notice Advance the pricing epoch for a task type. Adjusts baseFee based on
     ///         aggregate demand vs aggregate capacity in the previous epoch.
-    ///         Permissionless — anyone can call once the epoch has elapsed.
+    ///         Permissionless - anyone can call once the epoch has elapsed.
     /// @param taskTypeId The task type.
     function advanceEpoch(bytes32 taskTypeId) external;
 

@@ -10,7 +10,7 @@ import { EIP712 } from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 /// @title OffchainAggregator
 /// @notice Batch-verifies off-chain signed capacity attestations and feeds them into
 ///         the CapacityRegistry. Replaces commit-reveal as the fast path for capacity
-///         updates — agents sign capacity attestations off-chain, and any relayer can
+///         updates - agents sign capacity attestations off-chain, and any relayer can
 ///         submit a batch on-chain. Replay prevention via per-sink nonces.
 contract OffchainAggregator is IOffchainAggregator, Ownable, EIP712 {
     using ECDSA for bytes32;
@@ -28,7 +28,7 @@ contract OffchainAggregator is IOffchainAggregator, Ownable, EIP712 {
 
     CapacityRegistryLike public immutable capacityRegistry;
 
-    /// @notice Last processed nonce per sink (replay prevention — nonces must be strictly increasing).
+    /// @notice Last processed nonce per sink (replay prevention - nonces must be strictly increasing).
     mapping(address sink => uint256) public lastNonce;
 
     /// @notice Last applied attestation timestamp per (taskType, sink).

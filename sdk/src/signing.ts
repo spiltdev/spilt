@@ -2,8 +2,8 @@
  * EIP-712 signing helpers for BPE off-chain messages.
  *
  * Two message types:
- * 1. CapacityAttestation — signed by sinks, submitted via OffchainAggregator
- * 2. CompletionReceipt — dual-signed by sink + source, submitted via CompletionTracker
+ * 1. CapacityAttestation - signed by sinks, submitted via OffchainAggregator
+ * 2. CompletionReceipt - dual-signed by sink + source, submitted via CompletionTracker
  */
 import type { WalletClient, Hash, Hex } from "viem";
 

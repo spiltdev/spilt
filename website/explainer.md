@@ -1,4 +1,4 @@
-# How BPE Works — The Plain-Language Guide
+# How BPE Works - The Plain-Language Guide
 
 **No math degree required.** This page explains Backpressure Economics (BPE) from scratch, with pictures.
 
@@ -6,7 +6,7 @@
 
 ## The Problem: AI Agents Need to Pay Each Other
 
-Imagine a world where AI agents do work for each other — and pay with cryptocurrency in real-time, streaming tiny amounts every second, like a running meter.
+Imagine a world where AI agents do work for each other - and pay with cryptocurrency in real-time, streaming tiny amounts every second, like a running meter.
 
 - A **translation agent** pays an **LLM agent** to generate text
 - A **photo app** pays an **image generation agent** to create pictures
@@ -27,7 +27,7 @@ graph LR
 
 The LLM agent can only handle so much work. But the money keeps flowing in, whether the work gets done or not. It's like paying for a restaurant meal that never arrives because the kitchen is overwhelmed.
 
-**In data networks, this is a solved problem** — routers drop packets or reroute traffic when links are congested. But in payment networks? No one has built this. That's what BPE does.
+**In data networks, this is a solved problem** - routers drop packets or reroute traffic when links are congested. But in payment networks? No one has built this. That's what BPE does.
 
 ---
 
@@ -93,7 +93,7 @@ Let's walk through each one.
 
 Every AI agent that wants to receive payments (**called a "sink"**) tells the network how much work it can process. Think of it like a restaurant posting how many tables are open.
 
-But there's a catch — agents might lie to get more money. So declarations go through two safeguards:
+But there's a catch - agents might lie to get more money. So declarations go through two safeguards:
 
 **Stake to play.** Every agent must put down a deposit (like a security deposit on an apartment). The more you deposit, the more capacity you're allowed to claim. This prevents someone from creating a thousand fake agents to steal payments.
 
@@ -108,7 +108,7 @@ graph LR
     style D fill:#339af0,color:#fff
 ```
 
-Notice something? Depositing 4x more only gives you 2x more capacity. This is by design — it makes the "create fake identities" attack unprofitable.
+Notice something? Depositing 4x more only gives you 2x more capacity. This is by design - it makes the "create fake identities" attack unprofitable.
 
 **Commit-reveal.** Agents don't just blurt out their capacity. They first submit a sealed commitment (like a sealed auction bid), then reveal the actual number later. This prevents other agents from seeing your number and gaming the system.
 
@@ -133,7 +133,7 @@ sequenceDiagram
     Note over Chain: If completions < 50% of declared capacity<br/>for 3 periods in a row → slash the deposit!
 ```
 
-Every completed task produces a **dual-signed receipt** — both the agent doing the work AND the agent requesting it must sign off. The blockchain counts these receipts and compares them to what the agent *claimed* it could do.
+Every completed task produces a **dual-signed receipt** - both the agent doing the work AND the agent requesting it must sign off. The blockchain counts these receipts and compares them to what the agent *claimed* it could do.
 
 **If an agent claims it can handle 100 tasks per period but only completes 40?** After three bad periods in a row, 10% of its deposit gets taken away. This makes lying about capacity a losing strategy.
 
@@ -162,8 +162,8 @@ graph TB
 
 The price has two parts:
 
-- **Base fee** — goes up when demand is high across the board (like gas prices during a shortage)
-- **Queue premium** — goes up for a specific agent when their personal queue is long
+- **Base fee** - goes up when demand is high across the board (like gas prices during a shortage)
+- **Queue premium** - goes up for a specific agent when their personal queue is long
 
 This naturally pushes demand toward agents that have spare capacity, because they're cheaper.
 
@@ -183,9 +183,9 @@ graph TB
     Pool --> S2
     Pool --> S3
 
-    S1["Agent A — 50% capacity<br/>Gets $7.50/min"]
-    S2["Agent B — 30% capacity<br/>Gets $4.50/min"]
-    S3["Agent C — 20% capacity<br/>Gets $3.00/min"]
+    S1["Agent A - 50% capacity<br/>Gets $7.50/min"]
+    S2["Agent B - 30% capacity<br/>Gets $4.50/min"]
+    S3["Agent C - 20% capacity<br/>Gets $3.00/min"]
 
     style Pool fill:#339af0,color:#fff
     style S1 fill:#51cf66,color:#fff
@@ -193,7 +193,7 @@ graph TB
     style S3 fill:#51cf66,color:#fff
 ```
 
-The pool divides money in proportion to each agent's verified capacity. Agents with more verified capacity get a bigger slice. This happens **automatically and continuously** — no middleman, no manual intervention.
+The pool divides money in proportion to each agent's verified capacity. Agents with more verified capacity get a bigger slice. This happens **automatically and continuously** - no middleman, no manual intervention.
 
 When capacity changes (an agent gets busier, or a new agent joins), anyone can trigger a **rebalance** to update the split.
 
@@ -201,7 +201,7 @@ When capacity changes (an agent gets busier, or a new agent joins), anyone can t
 
 ### 5️⃣ Buffer: A Safety Net for Overflow
 
-What if ALL agents are at capacity and money keeps coming in? Instead of losing it, BPE holds it in an **escrow buffer** — like a waiting room.
+What if ALL agents are at capacity and money keeps coming in? Instead of losing it, BPE holds it in an **escrow buffer** - like a waiting room.
 
 ```mermaid
 graph LR
@@ -255,13 +255,13 @@ graph TB
 
 ## Why Should I Care?
 
-BPE matters because AI agents are starting to transact with each other autonomously — paying for compute, data, and services without humans in the loop. Today's payment systems can't handle this:
+BPE matters because AI agents are starting to transact with each other autonomously - paying for compute, data, and services without humans in the loop. Today's payment systems can't handle this:
 
 | Problem | Traditional Payments | BPE |
 |---------|---------------------|-----|
 | Agent gets overwhelmed | Money wasted, work unfinished | Money reroutes to available agents |
 | Agent lies about capacity | No way to know | Automatic detection and penalty |
-| New agent joins | Manual integration | Permissionless — just stake and register |
+| New agent joins | Manual integration | Permissionless - just stake and register |
 | Demand spikes | System breaks | Prices rise, demand balances naturally |
 | Agent goes offline | Payments lost | Buffer holds funds, pool rebalances |
 
@@ -276,18 +276,18 @@ BPE matters because AI agents are starting to transact with each other autonomou
 | **Task type** | A category of work (e.g., "text generation", "image creation") |
 | **Capacity** | How much work an agent can handle at once |
 | **Stake** | A security deposit agents put down to participate |
-| **Slash** | Penalty — taking part of an agent's deposit for bad behavior |
+| **Slash** | Penalty - taking part of an agent's deposit for bad behavior |
 | **EWMA** | A smoothing method that prevents sudden, suspicious capacity changes |
 | **Rebalance** | Updating how payments are split based on current capacity |
 | **Epoch** | A time window (5 minutes) for measuring agent performance |
 | **Stream** | A continuous payment flow (like a salary paid every second) |
-| **GDA** | General Distribution Agreement — Superfluid's tech for splitting a stream among multiple recipients |
+| **GDA** | General Distribution Agreement - Superfluid's tech for splitting a stream among multiple recipients |
 
 ---
 
 ## Want to Go Deeper?
 
-- **[Paper — Introduction](paper/introduction.md)** — the academic version, with formal proofs
-- **[Protocol Design](paper/protocol.md)** — technical details of each smart contract
-- **[Implementation](implementation/contracts.md)** — the actual Solidity code, deployed on Base Sepolia
-- **[SDK](implementation/sdk.md)** — build with BPE in TypeScript
+- **[Paper - Introduction](paper/introduction.md)** - the academic version, with formal proofs
+- **[Protocol Design](paper/protocol.md)** - technical details of each smart contract
+- **[Implementation](implementation/contracts.md)** - the actual Solidity code, deployed on Base Sepolia
+- **[SDK](implementation/sdk.md)** - build with BPE in TypeScript

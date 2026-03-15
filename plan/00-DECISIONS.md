@@ -8,7 +8,7 @@ All architectural and strategic decisions for the BPE project, with rationale.
 
 **Decision**: Ground the formal model in **Tassiulas-Ephremides backpressure routing** (1992) and **Kelly proportional fairness pricing** (1998). Demote the Reactive Streams Specification to an *implementation analogy*, not the theoretical foundation.
 
-**Rationale**: Tassiulas-Ephremides provides decades of proven mathematical machinery — Lyapunov drift analysis, throughput optimality proofs, stability guarantees, and multi-commodity flow formulations. The Reactive Streams spec is a software engineering pattern for the same concept, but has no formal proofs. Kelly's shadow prices are *already economic objects*, providing the bridge between network flow control and monetary mechanism design.
+**Rationale**: Tassiulas-Ephremides provides decades of proven mathematical machinery - Lyapunov drift analysis, throughput optimality proofs, stability guarantees, and multi-commodity flow formulations. The Reactive Streams spec is a software engineering pattern for the same concept, but has no formal proofs. Kelly's shadow prices are *already economic objects*, providing the bridge between network flow control and monetary mechanism design.
 
 ---
 
@@ -32,15 +32,15 @@ All architectural and strategic decisions for the BPE project, with rationale.
 
 **Decision**: **Decentralized max-weight protocol**, not a centralized Router entity.
 
-**Rationale**: The original proposal had a centralized "Router" directing payment flows — a centralization risk. Tassiulas's backpressure algorithm is *inherently decentralized*: each node only needs local queue information and neighbor queue backlogs. In practice for v0.1: the BackpressurePool contract + capacity oracle performs this routing within a single pool. Multi-hop routing (between pools) is deferred to v0.2.
+**Rationale**: The original proposal had a centralized "Router" directing payment flows - a centralization risk. Tassiulas's backpressure algorithm is *inherently decentralized*: each node only needs local queue information and neighbor queue backlogs. In practice for v0.1: the BackpressurePool contract + capacity oracle performs this routing within a single pool. Multi-hop routing (between pools) is deferred to v0.2.
 
 ---
 
 ## D5: Productive Allocation Property
 
 **Decision**: Rename to **"Productive Allocation Property"** and honestly decompose into two separate mechanisms with separate guarantees:
-1. **Routing efficiency** (from backpressure) — money routes around bottlenecks to nodes with available capacity
-2. **Verification** (from Proof of Continuous Work / PoCW) — output is actually productive
+1. **Routing efficiency** (from backpressure) - money routes around bottlenecks to nodes with available capacity
+2. **Verification** (from Proof of Continuous Work / PoCW) - output is actually productive
 
 **Rationale**: The original formulation was circular. Backpressure ensures efficient allocation given capacity signals; a separate verification layer ensures those signals are truthful. Both needed, but distinct mechanisms.
 
@@ -84,7 +84,7 @@ All architectural and strategic decisions for the BPE project, with rationale.
 
 ## D11: Publication Strategy
 
-**Decision**: **Two documents** — academic paper + protocol whitepaper/specification.
+**Decision**: **Two documents** - academic paper + protocol whitepaper/specification.
 
 ---
 

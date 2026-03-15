@@ -16,7 +16,7 @@ Generate data for paper Sections 7.1–7.4 (convergence, shock, Sybil, EWMA swee
 - **Malicious**: over-reports capacity, under-delivers (for Sybil/slashing experiments)
 
 ### Metrics
-1. **Allocation efficiency**: Σ min(payment_received, actual_capacity) / total_payment — measures how much payment goes to productive use
+1. **Allocation efficiency**: Σ min(payment_received, actual_capacity) / total_payment - measures how much payment goes to productive use
 2. **Convergence time**: steps until allocation is within 5% of optimal
 3. **Sybil profit**: gain from splitting vs honest single-sink
 4. **Queue stability**: max virtual queue backlog over time

@@ -29,11 +29,11 @@ This paper presents the formal theory, protocol design, and evaluation of Backpr
 
 The paper includes simulation results visualized as:
 
-- **Convergence** — Allocation efficiency over time
-- **Shock response** — Recovery from node-kill events
-- **EWMA sweep** — Sensitivity analysis of smoothing parameter $\alpha$
-- **Buffer utilization** — Overflow escrow dynamics
-- **Sybil cost** — Stake fragmentation analysis
+- **Convergence** - Allocation efficiency over time
+- **Shock response** - Recovery from node-kill events
+- **EWMA sweep** - Sensitivity analysis of smoothing parameter $\alpha$
+- **Buffer utilization** - Overflow escrow dynamics
+- **Sybil cost** - Stake fragmentation analysis
 
 !!! note "LaTeX Source"
     The full LaTeX source is available in `docs/paper/` for compilation with `pdflatex` + `bibtex`.

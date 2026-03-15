@@ -19,7 +19,7 @@ interface IEscrowBuffer {
     function deposit(bytes32 taskTypeId, uint256 amount) external;
 
     /// @notice Drain buffered funds to sinks with available capacity.
-    ///         Permissionless — anyone can trigger.
+    ///         Permissionless - anyone can trigger.
     /// @param taskTypeId The task type to drain buffer for.
     function drain(bytes32 taskTypeId) external;
 

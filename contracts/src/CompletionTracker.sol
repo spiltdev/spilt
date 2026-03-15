@@ -11,7 +11,7 @@ import { EIP712 } from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 /// @notice Statistical capacity verification via dual-signed completion receipts.
 ///         Tracks per-sink completion rates over rolling epochs. If a sink's declared capacity
 ///         significantly exceeds its verified completions for N consecutive epochs, it is
-///         auto-slashed via StakeManager — solving the oracle problem without external oracles.
+///         auto-slashed via StakeManager - solving the oracle problem without external oracles.
 contract CompletionTracker is ICompletionTracker, EIP712 {
     using ECDSA for bytes32;
 

@@ -20,7 +20,7 @@ contract BackpressurePool is IBackpressurePool, Ownable {
     /// @notice Scale factor for converting capacity proportions to pool units.
     uint128 public constant UNIT_SCALE = 1e9;
 
-    /// @notice Rebalance threshold in basis points — only rebalance if total capacity changed by this much.
+    /// @notice Rebalance threshold in basis points - only rebalance if total capacity changed by this much.
     uint256 public constant REBALANCE_THRESHOLD_BPS = 500; // 5%
     uint256 public constant BPS = 10_000;
 
@@ -69,7 +69,7 @@ contract BackpressurePool is IBackpressurePool, Ownable {
             // A task type with 0 minStake is still valid, so we check existence via the registry
         }
 
-        // Create Superfluid GDA pool — this contract is the admin (controls units)
+        // Create Superfluid GDA pool - this contract is the admin (controls units)
         PoolConfig memory config = PoolConfig({
             transferabilityForUnitsOwner: false,
             distributionFromAnyAddress: true // Allow any source to stream to pool
@@ -102,7 +102,7 @@ contract BackpressurePool is IBackpressurePool, Ownable {
                 ps.pool.updateMemberUnits(sinks[i], units);
             }
         } else {
-            // Zero total capacity — set all units to 0
+            // Zero total capacity - set all units to 0
             for (uint256 i; i < sinks.length; ++i) {
                 ps.pool.updateMemberUnits(sinks[i], 0);
             }

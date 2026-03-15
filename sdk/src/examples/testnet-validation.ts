@@ -1,5 +1,5 @@
 /**
- * testnet-validation.ts — Multi-scenario BPE validation on Base Sepolia.
+ * testnet-validation.ts - Multi-scenario BPE validation on Base Sepolia.
  *
  * Registers 3 task types, stakes + registers the deployer as sink for each,
  * then runs N cycles of: attestation → queue load → pricing epoch →
@@ -100,7 +100,7 @@ const rows: CycleRow[] = [];
 
 async function waitTx(hash: Hex, label: string): Promise<TransactionReceipt> {
   const receipt = await publicClient.waitForTransactionReceipt({ hash });
-  console.log(`  [ok] ${label} — block ${receipt.blockNumber}, gas ${receipt.gasUsed}`);
+  console.log(`  [ok] ${label} - block ${receipt.blockNumber}, gas ${receipt.gasUsed}`);
   return receipt;
 }
 
@@ -126,7 +126,7 @@ async function setup() {
   console.log(`Cycles  : ${CYCLES}`);
 
   // 1. Ensure sufficient stake
-  console.log("\n— Staking —");
+  console.log("\n- Staking -");
   const currentStake = await stake.getStake(publicClient, addrs, account.address);
   if (currentStake < MIN_STAKE) {
     const diff = MIN_STAKE - currentStake;
@@ -142,7 +142,7 @@ async function setup() {
   for (let i = 0; i < TASK_TYPES.length; i++) {
     const t = TASK_TYPES[i];
     const id = taskTypeIds[i];
-    console.log(`\n— Task type: ${t.name} —`);
+    console.log(`\n- Task type: ${t.name} -`);
 
     await safeTx(
       () => source.registerTaskType(walletClient, addrs, id, MIN_STAKE),
@@ -334,7 +334,7 @@ function printSummary() {
 // ─── Main ───
 
 async function main() {
-  console.log("BPE Testnet Validation — Base Sepolia");
+  console.log("BPE Testnet Validation - Base Sepolia");
   await setup();
 
   for (let c = 0; c < CYCLES; c++) {

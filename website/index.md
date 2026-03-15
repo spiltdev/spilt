@@ -8,7 +8,7 @@
 
 Backpressure Economics (BPE) is a novel cryptoeconomic mechanism that adapts the Tassiulas–Ephremides backpressure routing algorithm from communication networks to monetary flows in multi-agent economies.
 
-Streaming payment protocols enable continuous monetary flows between AI agents, yet none provide **flow control**: when a downstream agent reaches capacity, payments accumulate with no mechanism to reroute, buffer, or throttle — unlike data networks where packets can be dropped or queued.
+Streaming payment protocols enable continuous monetary flows between AI agents, yet none provide **flow control**: when a downstream agent reaches capacity, payments accumulate with no mechanism to reroute, buffer, or throttle - unlike data networks where packets can be dropped or queued.
 
 BPE solves this by treating **receiver-side capacity constraints as first-class payment routing primitives**.
 
@@ -28,7 +28,7 @@ BPE solves this by treating **receiver-side capacity constraints as first-class 
 
     ---
 
-    Proof via Lyapunov drift analysis that BPE achieves throughput-optimal allocation — every stabilisable demand vector is served with bounded overflow buffers.
+    Proof via Lyapunov drift analysis that BPE achieves throughput-optimal allocation - every stabilisable demand vector is served with bounded overflow buffers.
 
     [:octicons-arrow-right-24: See the proof](paper/throughput.md)
 
@@ -77,6 +77,6 @@ BPE solves this by treating **receiver-side capacity constraints as first-class 
 
 ## Explore
 
-- [**Paper**](paper/index.md) — Full academic paper with formal model, proofs, and evaluation
-- [**Plan**](plan/README.md) — Design decisions, protocol spec, contracts blueprint, and roadmap
-- [**Implementation**](implementation/contracts.md) — Smart contracts, SDK, and simulation code
+- [**Paper**](paper/index.md) - Full academic paper with formal model, proofs, and evaluation
+- [**Plan**](plan/README.md) - Design decisions, protocol spec, contracts blueprint, and roadmap
+- [**Implementation**](implementation/contracts.md) - Smart contracts, SDK, and simulation code

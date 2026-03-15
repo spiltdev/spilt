@@ -233,7 +233,7 @@ contract CompletionTrackerTest is Test {
 
         assertEq(tracker.getConsecutiveBelowThreshold(TASK_ID, sink1), 2);
 
-        // 1 good epoch — 60 completions out of 100 capacity
+        // 1 good epoch - 60 completions out of 100 capacity
         for (uint256 i; i < 60; i++) {
             bytes32 taskId = keccak256(abi.encode("recovery-task", i));
             bytes memory sinkSig = _signCompletion(TASK_ID, sink1, source1, taskId, block.timestamp, SINK_PK);

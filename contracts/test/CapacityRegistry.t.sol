@@ -131,7 +131,7 @@ contract CapacityRegistryTest is Test {
         vm.prank(sink3);
         registry.registerSink(TASK_ID, 300);
 
-        // Deregister middle (sink1) — should swap with last (sink3)
+        // Deregister middle (sink1) - should swap with last (sink3)
         vm.prank(sink1);
         registry.deregisterSink(TASK_ID);
 

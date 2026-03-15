@@ -1,4 +1,4 @@
-// @spilt/sdk — TypeScript SDK for Spilt Protocol
+// @spilt/sdk - TypeScript SDK for Spilt Protocol
 
 export { abis } from "./abis/index.js";
 export { addresses, getAddresses, type ChainAddresses } from "./addresses.js";

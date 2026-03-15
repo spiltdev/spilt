@@ -28,7 +28,7 @@ const SUPERFLUID_BASE_SEPOLIA = {
  * Populated after running Deploy.s.sol and recording output.
  */
 export const addresses: Record<number, ChainAddresses> = {
-  // Base Sepolia (chain ID 84532) — deployed 2026-03-14
+  // Base Sepolia (chain ID 84532) - deployed 2026-03-14
   84532: {
     stakeToken: "0xf5cf3cd405ac3b48dde534d9793ce9118d4ca4a5",
     stakeManager: "0xdc26b147030f635a2f8ac466d28a88b3b33ca6b3",

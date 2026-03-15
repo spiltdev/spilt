@@ -43,11 +43,11 @@ python bpe_sim.py
 
 Outputs are saved as PDF figures in `docs/paper/figures/`:
 
-- `convergence.pdf` — Allocation efficiency over time
-- `shock.pdf` — Shock response and recovery
-- `ewma_sweep.pdf` — EWMA parameter sensitivity
-- `sybil.pdf` — Sybil cost analysis
-- `buffer.pdf` — Buffer utilization dynamics
+- `convergence.pdf` - Allocation efficiency over time
+- `shock.pdf` - Shock response and recovery
+- `ewma_sweep.pdf` - EWMA parameter sensitivity
+- `sybil.pdf` - Sybil cost analysis
+- `buffer.pdf` - Buffer utilization dynamics
 
 ## Source
 

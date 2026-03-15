@@ -1,4 +1,4 @@
-# Spilt — Backpressure Economics (BPE)
+# Spilt - Backpressure Economics (BPE)
 
 **Capacity-Constrained Monetary Flow Control for Agent Economies**
 
@@ -8,7 +8,7 @@
 
 ---
 
-BPE adapts the [Tassiulas–Ephremides backpressure routing algorithm](https://doi.org/10.1109/9.182479) from communication networks to monetary flows in multi-agent economies. Streaming payment protocols enable continuous flows between AI agents, yet none provide **flow control** — when a downstream agent reaches capacity, payments accumulate with no mechanism to reroute, buffer, or throttle. BPE solves this by treating receiver-side capacity constraints as first-class payment routing primitives.
+BPE adapts the [Tassiulas–Ephremides backpressure routing algorithm](https://doi.org/10.1109/9.182479) from communication networks to monetary flows in multi-agent economies. Streaming payment protocols enable continuous flows between AI agents, yet none provide **flow control** - when a downstream agent reaches capacity, payments accumulate with no mechanism to reroute, buffer, or throttle. BPE solves this by treating receiver-side capacity constraints as first-class payment routing primitives.
 
 ## Architecture
 
@@ -30,11 +30,11 @@ CapacityRegistry <─── StakeManager
 
 ## Key Results
 
-- **Throughput-optimal** allocation via Lyapunov drift analysis — every stabilisable demand vector is served
+- **Throughput-optimal** allocation via Lyapunov drift analysis - every stabilisable demand vector is served
 - **95.7%** allocation efficiency vs 93.5% for round-robin (simulation)
 - **83.5%** gas reduction via off-chain attestation aggregation
 - **Sybil-resistant** concave capacity cap: $\text{cap}(S) = \sqrt{S/u}$
-- **Incentive-compatible** — truthful reporting is a Bayesian-Nash equilibrium
+- **Incentive-compatible** - truthful reporting is a Bayesian-Nash equilibrium
 
 ## Repository Structure
 
@@ -119,12 +119,12 @@ All contracts are verified on [Basescan](https://sepolia.basescan.org/).
 
 The research paper is in [`docs/paper/`](docs/paper/) (LaTeX). Key sections:
 
-1. **Formal Model** — capacity-constrained monetary flow network with EWMA smoothing
-2. **Throughput Optimality** — Lyapunov drift proof with explicit overflow buffer bounds
-3. **Dynamic Pricing** — EIP-1559-style queue-length pricing with equilibrium analysis
-4. **Off-Chain Attestation** — batched EIP-712 capacity signals (83.5% gas savings)
-5. **Security Analysis** — Sybil resistance, MEV resistance, Bayesian-Nash incentive compatibility
-6. **Capacity Verification** — statistical completion tracking with auto-slash
+1. **Formal Model** - capacity-constrained monetary flow network with EWMA smoothing
+2. **Throughput Optimality** - Lyapunov drift proof with explicit overflow buffer bounds
+3. **Dynamic Pricing** - EIP-1559-style queue-length pricing with equilibrium analysis
+4. **Off-Chain Attestation** - batched EIP-712 capacity signals (83.5% gas savings)
+5. **Security Analysis** - Sybil resistance, MEV resistance, Bayesian-Nash incentive compatibility
+6. **Capacity Verification** - statistical completion tracking with auto-slash
 
 Build the PDF:
 ```bash

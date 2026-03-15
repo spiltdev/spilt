@@ -157,7 +157,7 @@ contract PipelineForkTest is Test {
         stages[2] = STAGE_2;
         pipeline.createPipeline(PIPELINE_ID, stages);
 
-        // Rebalance pipeline — should trigger rebalance on all 3 pools
+        // Rebalance pipeline - should trigger rebalance on all 3 pools
         pipeline.rebalancePipeline(PIPELINE_ID);
 
         // Verify each stage's pool has units set

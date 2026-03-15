@@ -1,5 +1,5 @@
 """
-Backpressure Economics — Agent-Based Simulation
+Backpressure Economics - Agent-Based Simulation
 
 Simulates capacity-proportional monetary routing under the BPE protocol.
 Generates data for paper Section 7: Convergence, shock response, Sybil resistance, EWMA sweep.
@@ -235,7 +235,7 @@ def experiment_ewma_sweep(config: SimConfig) -> dict:
 
 
 def experiment_sybil(config: SimConfig) -> dict:
-    """E3: Sybil resistance — measure capacity gain vs cost for split identities.
+    """E3: Sybil resistance - measure capacity gain vs cost for split identities.
 
     Fix total attacker stake S. Split into n identities, each with S/n stake.
     Each identity must pay min_stake overhead. Capacity cap = sqrt(stake).
@@ -289,7 +289,7 @@ def experiment_sybil(config: SimConfig) -> dict:
 
 
 def experiment_buffer(config: SimConfig) -> dict:
-    """E5: Buffer dynamics — measure stall rate and efficiency under different buffer sizes.
+    """E5: Buffer dynamics - measure stall rate and efficiency under different buffer sizes.
     
     Buffer sized as fraction of total spike overflow per task type.
     Spikes are 3x normal demand for 10 of every 50 timesteps.
@@ -404,7 +404,7 @@ def plot_convergence(results: dict, output: str = "convergence.pdf"):
         ax2.plot(metrics.max_queue_backlog, label=name, alpha=0.8)
 
     ax1.set_ylabel("Allocation Efficiency")
-    ax1.set_title("E1: Convergence — BPE vs Baselines")
+    ax1.set_title("E1: Convergence - BPE vs Baselines")
     ax1.legend()
     ax1.grid(True, alpha=0.3)
 

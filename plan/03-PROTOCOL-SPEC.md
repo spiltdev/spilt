@@ -32,11 +32,11 @@ The BPE Protocol implements capacity-based monetary flow control for continuous 
 ## 2. Core Protocol
 
 ### 2.1 Task Type Registry
-- `registerTaskType(bytes32 taskTypeId, string metadata, uint256 minStake)` — permissionless with stake
+- `registerTaskType(bytes32 taskTypeId, string metadata, uint256 minStake)` - permissionless with stake
 - Creates a BackpressurePool for this task type
 
 ### 2.2 Sink Registration
-- `registerSink(bytes32 taskTypeId, uint256 initialCapacity)` — must stake ≥ minStake
+- `registerSink(bytes32 taskTypeId, uint256 initialCapacity)` - must stake ≥ minStake
 - Capacity capped at `sqrt(stake / STAKE_UNIT)` (+ minimum per-sink stake for Sybil resistance)
 - Becomes member of task type's BackpressurePool
 
@@ -46,11 +46,11 @@ The BPE Protocol implements capacity-based monetary flow control for continuous 
 - Triggers rebalance if change exceeds threshold δ
 
 ### 2.4 Rebalance
-- `rebalance(taskTypeId)` — permissionless, reads CapacityRegistry, updates pool member units
+- `rebalance(taskTypeId)` - permissionless, reads CapacityRegistry, updates pool member units
 - Units proportional to smoothed capacity: `units(K) = C_smooth(K) × SCALE / totalCapacity`
 
 ### 2.5 Source Streaming
-- `createStream(taskTypeId, flowRate)` — Superfluid CFA to BackpressurePool
+- `createStream(taskTypeId, flowRate)` - Superfluid CFA to BackpressurePool
 - Payment distributed to sinks proportional to current unit weights
 
 ### 2.6 Verification & Slashing

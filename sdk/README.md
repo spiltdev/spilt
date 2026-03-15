@@ -48,8 +48,8 @@ const price = await pricing.getPrice(publicClient, addrs, taskTypeId, account.ad
 
 ## Examples
 
-- [`examples/full-flow.ts`](src/examples/full-flow.ts) — 7-step end-to-end demo
-- [`examples/testnet-validation.ts`](src/examples/testnet-validation.ts) — multi-scenario validation with CSV output
+- [`examples/full-flow.ts`](src/examples/full-flow.ts) - 7-step end-to-end demo
+- [`examples/testnet-validation.ts`](src/examples/testnet-validation.ts) - multi-scenario validation with CSV output
 
 Run examples:
 ```bash

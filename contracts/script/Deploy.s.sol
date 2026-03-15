@@ -95,7 +95,7 @@ contract Deploy is Script {
         );
         console.log("SuperToken (tUSDCx):", address(paymentSuperToken));
 
-        // 6. BackpressurePool — uses tUSDCx as the streaming payment token
+        // 6. BackpressurePool - uses tUSDCx as the streaming payment token
         BackpressurePool pool = new BackpressurePool(
             GDA_V1, address(paymentSuperToken), address(registry), deployer
         );
@@ -113,17 +113,17 @@ contract Deploy is Script {
         );
         console.log("Pipeline:", address(pipeline));
 
-        // 9. PricingCurve — dynamic queue-length pricing
+        // 9. PricingCurve - dynamic queue-length pricing
         PricingCurve pricing = new PricingCurve(address(registry));
         console.log("PricingCurve:", address(pricing));
 
-        // 10. CompletionTracker — statistical capacity verification
+        // 10. CompletionTracker - statistical capacity verification
         CompletionTracker tracker = new CompletionTracker(
             address(registry), address(stakeManager)
         );
         console.log("CompletionTracker:", address(tracker));
 
-        // 11. OffchainAggregator — batch off-chain signal verification
+        // 11. OffchainAggregator - batch off-chain signal verification
         OffchainAggregator aggregator = new OffchainAggregator(
             address(registry), deployer
         );

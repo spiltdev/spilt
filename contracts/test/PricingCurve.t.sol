@@ -144,7 +144,7 @@ contract PricingCurveTest is Test {
 
         uint256 baseBefore = pricing.getBaseFee(TASK_ID);
 
-        // Now advance with zero demand — fee should decrease
+        // Now advance with zero demand - fee should decrease
         vm.warp(block.timestamp + pricing.EPOCH_DURATION() + 1);
         pricing.advanceEpoch(TASK_ID);
 
@@ -170,7 +170,7 @@ contract PricingCurveTest is Test {
         vm.prank(sink1);
         pricing.reportQueueLoad(TASK_ID, 0);
 
-        // Decrease fee many times — should not go below MIN_BASE_FEE
+        // Decrease fee many times - should not go below MIN_BASE_FEE
         for (uint256 i; i < 50; i++) {
             vm.warp(block.timestamp + pricing.EPOCH_DURATION() + 1);
             pricing.advanceEpoch(TASK_ID);

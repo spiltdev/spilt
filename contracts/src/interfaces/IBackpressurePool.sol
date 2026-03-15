@@ -21,7 +21,7 @@ interface IBackpressurePool {
     // ──────────────────── Rebalance ────────────────────
 
     /// @notice Rebalance pool member units based on current capacity signals.
-    ///         Permissionless — anyone can call. Reads from CapacityRegistry.
+    ///         Permissionless - anyone can call. Reads from CapacityRegistry.
     /// @param taskTypeId The task type pool to rebalance.
     function rebalance(bytes32 taskTypeId) external;
 

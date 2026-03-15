@@ -20,7 +20,7 @@
 **Fix**: EWMA smoothing (α=0.3) + threshold-based rebalance triggers.
 
 ### G6: MEV / Front-Running
-**Fix**: Commit-reveal for capacity signals. Rebalance is deterministic — no extraction.
+**Fix**: Commit-reveal for capacity signals. Rebalance is deterministic - no extraction.
 
 ### G7: Cold Start
 **Fix**: Stake-based bootstrap. Capacity capped by stake until track record builds.

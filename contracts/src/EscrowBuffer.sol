@@ -10,7 +10,7 @@ import { ICapacitySignal } from "./interfaces/ICapacitySignal.sol";
 /// @title EscrowBuffer
 /// @notice Overflow buffer for when all sinks in a task type are at capacity.
 ///         Holds excess funds and drains FIFO as capacity frees up.
-///         In BPE, money can't be "dropped" like data — this buffer absorbs the overflow.
+///         In BPE, money can't be "dropped" like data - this buffer absorbs the overflow.
 contract EscrowBuffer is IEscrowBuffer, Ownable {
     using SafeERC20 for IERC20;
 
