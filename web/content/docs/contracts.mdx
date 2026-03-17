@@ -30,14 +30,14 @@ The foundational layer: capacity-weighted streaming payment routing for AI agent
 
 | Contract | Purpose |
 |----------|---------|
-| `CapacityRegistry` | Task type + sink registry, commit-reveal capacity signals, EWMA smoothing |
-| `StakeManager` | Stake/unstake/slash, concave capacity cap $\sqrt{\text{stake}/\text{unit}}$ |
-| `BackpressurePool` | Superfluid GDA pool with capacity-weighted unit rebalancing |
-| `EscrowBuffer` | Overflow buffer when all sinks saturated, FIFO drain |
-| `Pipeline` | Multi-stage pipeline composition with upstream congestion propagation |
-| `PricingCurve` | EIP-1559-style dynamic fees based on queue length |
-| `CompletionTracker` | Statistical capacity verification with auto-slash |
-| `OffchainAggregator` | Batched EIP-712 attestation submission (83.5% gas savings) |
+| [`CapacityRegistry`](https://github.com/backproto/backproto/blob/main/contracts/src/CapacityRegistry.sol) | Task type + sink registry, commit-reveal capacity signals, EWMA smoothing |
+| [`StakeManager`](https://github.com/backproto/backproto/blob/main/contracts/src/StakeManager.sol) | Stake/unstake/slash, concave capacity cap $\sqrt{\text{stake}/\text{unit}}$ |
+| [`BackpressurePool`](https://github.com/backproto/backproto/blob/main/contracts/src/BackpressurePool.sol) | Superfluid GDA pool with capacity-weighted unit rebalancing |
+| [`EscrowBuffer`](https://github.com/backproto/backproto/blob/main/contracts/src/EscrowBuffer.sol) | Overflow buffer when all sinks saturated, FIFO drain |
+| [`Pipeline`](https://github.com/backproto/backproto/blob/main/contracts/src/Pipeline.sol) | Multi-stage pipeline composition with upstream congestion propagation |
+| [`PricingCurve`](https://github.com/backproto/backproto/blob/main/contracts/src/PricingCurve.sol) | EIP-1559-style dynamic fees based on queue length |
+| [`CompletionTracker`](https://github.com/backproto/backproto/blob/main/contracts/src/CompletionTracker.sol) | Statistical capacity verification with auto-slash |
+| [`OffchainAggregator`](https://github.com/backproto/backproto/blob/main/contracts/src/OffchainAggregator.sol) | Batched EIP-712 attestation submission (83.5% gas savings) |
 
 ## Demurrage (2 contracts)
 
@@ -45,8 +45,8 @@ Time-decaying tokens that incentivize circulation over hoarding, layered with ve
 
 | Contract | Purpose |
 |----------|---------|
-| `DemurrageToken` | ERC-20 Super Token with configurable decay rate per epoch |
-| `VelocityMetrics` | Epoch-based monetary velocity and turnover rate tracking |
+| [`DemurrageToken`](https://github.com/backproto/backproto/blob/main/contracts/src/DemurrageToken.sol) | ERC-20 Super Token with configurable decay rate per epoch |
+| [`VelocityMetrics`](https://github.com/backproto/backproto/blob/main/contracts/src/VelocityMetrics.sol) | Epoch-based monetary velocity and turnover rate tracking |
 
 ## Nostr Relays (2 contracts)
 
@@ -54,8 +54,10 @@ NIP-compliant relay capacity signaling and economic sustainability for relay ope
 
 | Contract | Purpose |
 |----------|---------|
-| `RelayCapacityRegistry` | Relay registration with EIP-712 signed capacity attestations, EWMA smoothing |
-| `RelayPaymentPool` | Anti-spam minimum + BPE-weighted streaming payment distribution |
+| [`RelayCapacityRegistry`](https://github.com/backproto/backproto/blob/main/contracts/src/RelayCapacityRegistry.sol) | Relay registration with EIP-712 signed capacity attestations, EWMA smoothing |
+| [`RelayPaymentPool`](https://github.com/backproto/backproto/blob/main/contracts/src/RelayPaymentPool.sol) | Anti-spam minimum + BPE-weighted streaming payment distribution |
+
+See also: [NIP-XX specification](/docs/nip-xx) for the full Nostr relay economics protocol.
 
 ## Lightning (3 contracts)
 
@@ -63,9 +65,9 @@ Channel capacity oracles and cross-protocol routing for Lightning Network integr
 
 | Contract | Purpose |
 |----------|---------|
-| `LightningCapacityOracle` | EWMA-smoothed Lightning node capacity from signed attestation batches |
-| `LightningRoutingPool` | BPE pool weighting nodes by capacity/congestion score |
-| `CrossProtocolRouter` | Unified routing across Superfluid, Lightning, and on-chain settlement |
+| [`LightningCapacityOracle`](https://github.com/backproto/backproto/blob/main/contracts/src/LightningCapacityOracle.sol) | EWMA-smoothed Lightning node capacity from signed attestation batches |
+| [`LightningRoutingPool`](https://github.com/backproto/backproto/blob/main/contracts/src/LightningRoutingPool.sol) | BPE pool weighting nodes by capacity/congestion score |
+| [`CrossProtocolRouter`](https://github.com/backproto/backproto/blob/main/contracts/src/CrossProtocolRouter.sol) | Unified routing across Superfluid, Lightning, and on-chain settlement |
 
 ## Platform (2 contracts)
 
@@ -73,8 +75,8 @@ The composition layer: universal adapter and cross-domain reputation.
 
 | Contract | Purpose |
 |----------|---------|
-| `UniversalCapacityAdapter` | Domain adapter registry, normalizes capacity 0–10000, routes to core BPE |
-| `ReputationLedger` | Cross-domain portable reputation, 3× negative weight, up to 50% stake discount |
+| [`UniversalCapacityAdapter`](https://github.com/backproto/backproto/blob/main/contracts/src/UniversalCapacityAdapter.sol) | Domain adapter registry, normalizes capacity 0–10000, routes to core BPE |
+| [`ReputationLedger`](https://github.com/backproto/backproto/blob/main/contracts/src/ReputationLedger.sol) | Cross-domain portable reputation, 3× negative weight, up to 50% stake discount |
 
 ## Deployment
 
@@ -99,3 +101,11 @@ All 125 tests pass. The test suite covers:
 ## Source
 
 Contract source code is on [GitHub](https://github.com/backproto/backproto/tree/main/contracts/src).
+
+---
+
+## See Also
+
+- [TypeScript SDK](/docs/sdk) — Type-safe client for interacting with all contracts
+- [Simulation](/docs/simulation) — Agent-based validation of BPE theoretical claims
+- [NIP-XX](/docs/nip-xx) — Nostr relay economics specification

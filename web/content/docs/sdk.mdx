@@ -4,7 +4,7 @@ order: 1
 description: Type-safe client for interacting with Backproto contracts via viem
 ---
 
-The `@backproto/sdk` package provides a TypeScript client for interacting with all 17 Backproto smart contracts across 4 domains.
+The `@backproto/sdk` package provides a TypeScript client for interacting with all 17 Backproto [smart contracts](/docs/contracts) across 4 domains.
 
 ## Installation
 
@@ -51,25 +51,33 @@ const capacity = await client.readContract({
 
 | Module | Description |
 |--------|-------------|
-| `actions/sink` | Register/deregister sinks |
-| `actions/source` | Register task types, start/stop payment streams |
-| `actions/pool` | Create pools, rebalance, read member units |
-| `actions/stake` | Stake/unstake tokens, read capacity cap |
-| `actions/buffer` | Deposit to / drain from escrow buffer |
-| `actions/pricing` | Report queue load, advance pricing epoch, read prices |
-| `actions/completion` | Record completions, advance completion epoch |
-| `actions/aggregator` | Submit batched off-chain attestations |
-| `signing` | EIP-712 signing helpers |
+| [`actions/sink`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/sink.ts) | Register/deregister sinks |
+| [`actions/source`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/source.ts) | Register task types, start/stop payment streams |
+| [`actions/pool`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/pool.ts) | Create pools, rebalance, read member units |
+| [`actions/stake`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/stake.ts) | Stake/unstake tokens, read capacity cap |
+| [`actions/buffer`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/buffer.ts) | Deposit to / drain from escrow buffer |
+| [`actions/pricing`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/pricing.ts) | Report queue load, advance pricing epoch, read prices |
+| [`actions/completion`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/completion.ts) | Record completions, advance completion epoch |
+| [`actions/aggregator`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/aggregator.ts) | Submit batched off-chain attestations |
+| [`signing`](https://github.com/backproto/backproto/blob/main/sdk/src/signing.ts) | EIP-712 signing helpers |
 
 ### Domain Extensions
 
 | Module | Description |
 |--------|-------------|
-| `actions/demurrage` | Wrap/unwrap demurrage tokens, rebase, read decay rates |
-| `actions/relay` | Register Nostr relays, join pools, set anti-spam minimums |
-| `actions/lightning` | Register Lightning nodes, join routing pools, get optimal routes |
-| `actions/platform` | Aggregate reputation, stake discounts, route attestations |
+| [`actions/demurrage`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/demurrage.ts) | Wrap/unwrap demurrage tokens, rebase, read decay rates |
+| [`actions/relay`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/relay.ts) | Register Nostr relays, join pools, set anti-spam minimums |
+| [`actions/lightning`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/lightning.ts) | Register Lightning nodes, join routing pools, get optimal routes |
+| [`actions/platform`](https://github.com/backproto/backproto/blob/main/sdk/src/actions/platform.ts) | Aggregate reputation, stake discounts, route attestations |
 
 ## Source
 
 SDK source code is on [GitHub](https://github.com/backproto/backproto/tree/main/sdk/src).
+
+---
+
+## See Also
+
+- [Smart Contracts](/docs/contracts) — All 17 deployed contracts with addresses and source
+- [Simulation](/docs/simulation) — Agent-based validation of BPE claims
+- [NIP-XX](/docs/nip-xx) — Nostr relay economics specification

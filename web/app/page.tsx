@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArchitectureDiagram from "./components/ArchitectureDiagram";
 import styles from "./page.module.css";
 
 const coreContracts = [
@@ -18,24 +19,28 @@ const domains = [
     description:
       "Capacity-weighted streaming payment routing via Superfluid GDA. Payments flow to agents with verified spare capacity.",
     contracts: "8 contracts: CapacityRegistry, BackpressurePool, StakeManager, EscrowBuffer, Pipeline, PricingCurve, CompletionTracker, OffchainAggregator",
+    color: "#0d9488",
   },
   {
     title: "Demurrage",
     description:
       "Time-decaying Super Tokens that incentivize circulation over hoarding. Epoch-based velocity metrics track turnover.",
     contracts: "2 contracts: DemurrageToken, VelocityMetrics",
+    color: "#d97706",
   },
   {
     title: "Lightning",
     description:
       "EWMA-smoothed channel capacity oracles and cross-protocol routing across Superfluid, Lightning, and on-chain settlement.",
     contracts: "3 contracts: LightningCapacityOracle, LightningRoutingPool, CrossProtocolRouter",
+    color: "#a16207",
   },
   {
     title: "Nostr Relays",
     description:
       "NIP-compliant relay capacity signaling with anti-spam pricing. BPE-weighted payment pools make relay operation sustainable.",
     contracts: "2 contracts: RelayCapacityRegistry, RelayPaymentPool",
+    color: "#6366f1",
   },
 ];
 
@@ -74,8 +79,8 @@ export default function Home() {
       <section className={styles.section}>
         <div className={styles.sectionTitle}>Four Domains, One Protocol</div>
         <div className={styles.cards}>
-          {domains.map(({ title, description, contracts }) => (
-            <div key={title} className={styles.card}>
+          {domains.map(({ title, description, contracts, color }) => (
+            <div key={title} className={styles.card} style={{ borderTop: `2px solid ${color}` }}>
               <div className={styles.cardTitle}>{title}</div>
               <p className={styles.cardText}>{description}</p>
               <p className={styles.cardText} style={{ opacity: 0.6, fontSize: "0.75rem", marginTop: "0.5rem" }}>
@@ -86,25 +91,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={styles.diagram}>
-        <div className={styles.diagramBox}>
-          <pre>
-            <code>{`                  ┌──────────────────────────────┐
-                  │       Platform Layer          │
-                  │  UniversalCapacityAdapter      │
-                  │  ReputationLedger              │
-                  │  CrossProtocolRouter           │
-                  └──────┬──────┬──────┬──────────┘
-                         │      │      │
-         ┌───────────────┤      │      ├──────────────────┐
-         ▼               ▼      ▼      ▼                  ▼
-  ┌─────────────┐ ┌──────────┐ ┌───────────────┐ ┌────────────────┐
-  │  Core BPE   │ │Demurrage │ │ Nostr Relays  │ │   Lightning    │
-  │  8 contracts│ │2 contract│ │ 2 contracts   │ │  3 contracts   │
-  └─────────────┘ └──────────┘ └───────────────┘ └────────────────┘`}</code>
-          </pre>
-        </div>
-      </div>
+      <ArchitectureDiagram />
 
       <section className={styles.section}>
         <div className={styles.sectionTitle}>Key Results</div>
@@ -159,7 +146,13 @@ export default function Home() {
             {coreContracts.map(({ name, addr }) => (
               <tr key={addr}>
                 <td>
-                  <code>{name}</code>
+                  <a
+                    href={`https://github.com/backproto/backproto/blob/main/contracts/src/${name}.sol`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <code>{name}</code>
+                  </a>
                 </td>
                 <td>
                   <a
