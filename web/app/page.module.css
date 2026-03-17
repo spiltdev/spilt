@@ -1,8 +1,22 @@
 .hero {
   max-width: var(--max-width-wide);
   margin: 0 auto;
-  padding: 4rem 1.5rem 2rem;
+  padding: 5rem 1.5rem 2rem;
   text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .badge {
@@ -27,7 +41,7 @@
 }
 
 .title span {
-  background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -36,9 +50,9 @@
 .subtitle {
   font-size: 1.15rem;
   color: var(--text-muted);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto 2rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .buttons {
@@ -83,12 +97,12 @@
 
 .btnSecondary:hover {
   background: var(--bg-hover);
-  border-color: var(--text-muted);
+  border-color: var(--accent);
   color: #fff;
 }
 
 .diagram {
-  max-width: var(--max-width);
+  max-width: var(--max-width-wide);
   margin: 3rem auto;
   padding: 0 1.5rem;
 }
@@ -97,7 +111,7 @@
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 2rem;
   overflow-x: auto;
 }
 
@@ -124,6 +138,8 @@
   letter-spacing: 0.1em;
   color: var(--text-dim);
   margin-bottom: 1.5rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
 }
 
 .cards {
@@ -137,11 +153,13 @@
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1.25rem;
-  transition: border-color 0.15s;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
 .card:hover {
   border-color: var(--border-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-amber);
 }
 
 .cardTitle {
@@ -160,8 +178,9 @@
 
 .metric {
   font-family: var(--font-mono);
-  color: var(--green);
-  font-weight: 600;
+  font-size: 2rem;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .contracts {

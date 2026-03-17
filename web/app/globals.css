@@ -1,20 +1,22 @@
 @import "katex/dist/katex.min.css";
 
 :root {
-  --bg: #0a0a0a;
-  --bg-elevated: #141414;
-  --bg-surface: #1a1a1a;
+  --bg: #09090b;
+  --bg-elevated: #111113;
+  --bg-surface: #18181b;
   --bg-hover: #222;
-  --border: #2a2a2a;
-  --border-bright: #333;
+  --border: #27272a;
+  --border-bright: #3f3f46;
 
-  --text: #e0e0e0;
-  --text-muted: #888;
-  --text-dim: #666;
+  --text: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
 
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-dim: #1e3a5f;
+  --accent: #d97706;
+  --accent-hover: #f59e0b;
+  --accent-dim: rgba(217, 119, 6, 0.15);
+
+  --glow-amber: 0 0 80px rgba(217, 119, 6, 0.08);
 
   --green: #22c55e;
   --yellow: #eab308;
@@ -64,10 +66,10 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #fff;
 }
 

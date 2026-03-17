@@ -61,12 +61,12 @@ This makes spam economically unviable at scale without requiring content filteri
 
 ## Contracts
 
-Two contracts implement this NIP:
+Two [contracts](/docs/contracts) implement this NIP:
 
 - **RelayCapacityRegistry**: Relay registration, EIP-712 attestation verification, EWMA smoothing, composite capacity scoring
 - **RelayPaymentPool**: Anti-spam minimum enforcement, BPE-weighted payment distribution via Superfluid GDA
 
-## SDK Support
+## [SDK](/docs/sdk) Support
 
 ```typescript
 import * as relay from "@backproto/sdk/actions/relay";
@@ -84,3 +84,11 @@ const cap = await relay.getCompositeCapacity(publicClient, addrs, relayAddress);
 ## Full Specification
 
 The complete NIP-XX specification with all protocol details, message formats, and implementation requirements is in the [docs/nips](https://github.com/backproto/backproto/blob/main/docs/nips/NIP-XX-backpressure-relay-economics.md) directory.
+
+---
+
+## See Also
+
+- [Smart Contracts](/docs/contracts) — All 17 deployed contracts including RelayCapacityRegistry and RelayPaymentPool
+- [TypeScript SDK](/docs/sdk) — Type-safe relay action modules
+- [Simulation](/docs/simulation) — Agent-based validation of BPE claims
