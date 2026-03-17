@@ -5,13 +5,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.26-363636.svg)](https://soliditylang.org/)
 [![Base Sepolia](https://img.shields.io/badge/Network-Base%20Sepolia-0052FF.svg)](https://sepolia.basescan.org/)
-[![Tests](https://img.shields.io/badge/Tests-125%20passing-brightgreen.svg)](#)
+[![Tests](https://img.shields.io/badge/Tests-213%20passing-brightgreen.svg)](#)
 
 ---
 
 Backproto adapts the [Tassiulas–Ephremides backpressure routing algorithm](https://doi.org/10.1109/9.182479) from communication networks to monetary and data flows in decentralized systems. When downstream participants reach capacity, payments and messages must reroute, buffer, or throttle. Backproto makes receiver-side capacity constraints a first-class protocol primitive.
 
-The protocol spans **four domains**:
+The protocol spans **five domains**:
 
 | Domain | What it solves |
 |--------|---------------|
@@ -19,6 +19,7 @@ The protocol spans **four domains**:
 | **Demurrage** | Time-decaying super tokens + velocity metrics to incentivize circulation |
 | **Nostr Relays** | Relay capacity signaling, anti-spam pricing, BPE-weighted payment pools |
 | **Lightning** | EWMA-smoothed channel capacity oracles, cross-protocol routing |
+| **V2 Composition** | Factory-deployed nested economies, quality scoring, urgency and velocity tokens |
 
 Plus a **platform layer** (universal capacity adapter, cross-domain reputation ledger, and protocol router) that composes these domains into one system.
 
@@ -47,7 +48,7 @@ Plus a **platform layer** (universal capacity adapter, cross-domain reputation l
   └───────────────────┘
 ```
 
-## Key Results
+## Results
 
 - **Throughput-optimal** allocation via Lyapunov drift analysis: every stabilisable demand vector is served
 - **95.7%** allocation efficiency vs 93.5% for round-robin (simulation)
@@ -64,14 +65,15 @@ contracts/              Solidity smart contracts (Foundry)
     lightning/          LightningCapacityOracle, LightningRoutingPool, CrossProtocolRouter
     nostr/              RelayCapacityRegistry, RelayPaymentPool
     interfaces/         14 interfaces
-  test/                 125 passing tests
+  test/                 213 passing tests
   script/               Full-stack deployment script
   deployments/          Deployed addresses (Base Sepolia)
 
 sdk/                    TypeScript SDK (@backproto/sdk)
-  src/actions/          13 action modules (sink, source, pool, stake, buffer,
+  src/actions/          18 action modules (sink, source, pool, stake, buffer,
                         pricing, completion, aggregator, demurrage, relay,
-                        lightning, platform, signing)
+                        lightning, platform, openclaw, economy, nestedPool,
+                        quality, urgencyToken, velocityToken)
   src/examples/         Full-flow demo + testnet validation
 
 docs/
@@ -98,7 +100,7 @@ gtm/                    Go-to-market material
 cd contracts
 forge install
 forge build
-forge test            # 125 tests passing
+forge test            # 213 tests passing
 ```
 
 ### SDK
@@ -125,7 +127,7 @@ pip install numpy matplotlib
 python simulation/bpe_sim.py
 ```
 
-## Contracts: 17 Deployed on Base Sepolia
+## Contracts: 22 Deployed on Base Sepolia
 
 ### Core BPE
 
@@ -158,7 +160,7 @@ python simulation/bpe_sim.py
 
 ## Paper
 
-The research paper is in [`docs/paper/`](docs/paper/) (LaTeX). Key sections:
+The research paper is in [`docs/paper/`](docs/paper/) (LaTeX). Sections:
 
 1. **Formal Model**: capacity-constrained monetary flow network with EWMA smoothing
 2. **Throughput Optimality**: Lyapunov drift proof with explicit overflow buffer bounds

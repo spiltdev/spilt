@@ -269,7 +269,7 @@ export default function Home() {
 
       {/* ─── 8. Results ────────────────────────────────────── */}
       <section className={styles.section}>
-        <div className={styles.label}>Key results</div>
+        <div className={styles.label}>Results</div>
         <div className={styles.statBar}>
           {stats.map(({ value, label }, i) => (
             <div key={label} className={styles.stat}>

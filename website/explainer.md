@@ -45,7 +45,7 @@ Fair question. If you're coming from the AI/ML world, you might wonder why any o
 
 **Composability.** Every contract on the network can call every other contract. BPE's routing pools can plug into lending protocols, insurance contracts, or any other on-chain system without needing an integration partner. This means new domains (Lightning channels, Nostr relays, anything else) can plug into the same capacity infrastructure without anyone's permission.
 
-### Key concepts (quick glossary for developers)
+### Concepts (quick glossary for developers)
 
 | Concept | What it is | Why BPE needs it |
 |---------|-----------|------------------|
@@ -85,7 +85,7 @@ When Agent A has lots of spare capacity, it gets a bigger share of the payments.
 
 ## How Does It Actually Work?
 
-There are five key ideas, and they form a pipeline:
+There are five ideas, and they form a pipeline:
 
 ```mermaid
 graph TB
@@ -440,7 +440,7 @@ graph LR
     style B3 fill:#a16207,color:#fff
 ```
 
-**Key details:**
+**Details:**
 
 - Decay is **continuous and exponential**: your balance shrinks every second you hold it idle, at a configurable rate (default: 5% per year)
 - Decay only applies to **idle holdings**. Tokens locked in streaming agreements or staking contracts are exempt.
@@ -644,7 +644,7 @@ The economic incentive layer also addresses a structural problem: Lightning rout
 **Implementation:**
 
 - **[Smart Contracts](implementation/contracts.md)**: the Solidity code, 22 contracts deployed on Base Sepolia
-- **[TypeScript SDK](implementation/sdk.md)**: build with BPE in TypeScript, 13 action modules
+- **[TypeScript SDK](implementation/sdk.md)**: build with BPE in TypeScript, 18 action modules
 - **[Simulation](implementation/simulation.md)**: Python simulation showing 95.7% allocation efficiency
 
 **Domain-Specific:**

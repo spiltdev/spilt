@@ -17,7 +17,7 @@ const sections = [
   { id: "the-problem", label: "The Problem", level: 2 as const },
   { id: "why-crypto", label: "Why Crypto?", level: 2 as const },
   { id: "properties", label: "Properties that matter", level: 3 as const },
-  { id: "key-concepts", label: "Key concepts", level: 3 as const },
+  { id: "key-concepts", label: "Concepts", level: 3 as const },
   { id: "where-runs", label: "Where does BPE run?", level: 3 as const },
   { id: "the-solution", label: "The Solution", level: 2 as const },
   { id: "how-it-works", label: "How It Works", level: 2 as const },
@@ -162,7 +162,7 @@ export default function ExplainerPage() {
         infrastructure without anyone&apos;s permission.
       </p>
 
-      <h3 id="key-concepts">Key concepts (quick glossary for AI developers)</h3>
+      <h3 id="key-concepts">Concepts (quick glossary for AI developers)</h3>
       <table>
         <thead>
           <tr>
@@ -252,7 +252,7 @@ export default function ExplainerPage() {
 
       <h2 id="how-it-works">How Does It Actually Work?</h2>
       <p>
-        There are five key ideas, and they form a pipeline:
+        There are five ideas, and they form a pipeline:
       </p>
 
       <AnimatedDiagram {...pipelineDiagram} />
@@ -587,7 +587,7 @@ export default function ExplainerPage() {
 
       <AnimatedDiagram {...demurrageDiagram} />
 
-      <p><strong>Key details:</strong></p>
+      <p><strong>Details:</strong></p>
       <ul>
         <li>
           Decay is <strong>continuous and exponential</strong>: your balance
@@ -1033,12 +1033,12 @@ export default function ExplainerPage() {
       <h3>Implementation</h3>
       <ul className={styles.links}>
         <li>
-          <a href="/docs/contracts">Smart Contracts</a>: the Solidity code, 17
+          <a href="/docs/contracts">Smart Contracts</a>: the Solidity code, 22
           contracts deployed on Base Sepolia
         </li>
         <li>
           <a href="/docs/sdk">TypeScript SDK</a>: build with BPE in TypeScript,
-          13 action modules
+          18 action modules
         </li>
         <li>
           <a href="/docs/simulation">Simulation</a>: Python simulation showing
