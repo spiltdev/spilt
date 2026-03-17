@@ -28,6 +28,12 @@ export type ChainAddresses = {
   openClawCapacityAdapter: `0x${string}`;
   openClawCompletionVerifier: `0x${string}`;
   openClawReputationBridge: `0x${string}`;
+  // V2: Recursive composition + quality + token mechanics
+  nestedPool: `0x${string}`;
+  economyFactory: `0x${string}`;
+  qualityOracle: `0x${string}`;
+  velocityToken: `0x${string}`;
+  urgencyToken: `0x${string}`;
 };
 
 /** Well-known Superfluid addresses on Base Sepolia */
@@ -71,6 +77,12 @@ export const addresses: Record<number, ChainAddresses> = {
     openClawCapacityAdapter: "0x0000000000000000000000000000000000000000",
     openClawCompletionVerifier: "0x0000000000000000000000000000000000000000",
     openClawReputationBridge: "0x0000000000000000000000000000000000000000",
+    // V2 (placeholder -- update after deployment)
+    nestedPool: "0x0000000000000000000000000000000000000000",
+    economyFactory: "0x0000000000000000000000000000000000000000",
+    qualityOracle: "0x0000000000000000000000000000000000000000",
+    velocityToken: "0x0000000000000000000000000000000000000000",
+    urgencyToken: "0x0000000000000000000000000000000000000000",
   },
 };
 
