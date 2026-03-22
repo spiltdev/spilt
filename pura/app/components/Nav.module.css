@@ -1,0 +1,79 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1.5rem;
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brandIcon {
+  color: var(--accent);
+}
+
+.links {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.link {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-md);
+  transition: color 0.15s, background 0.15s;
+}
+
+.link:hover {
+  color: var(--text);
+  background: var(--bg-hover);
+}
+
+.linkActive {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.external {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+}
+
+.external:hover {
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+
+  .links {
+    gap: 0;
+  }
+
+  .link {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.45rem;
+  }
+}
