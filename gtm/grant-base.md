@@ -53,7 +53,7 @@ Each project works independently. Together they close the loop: capture what age
 
 Solo builder. Background in software engineering and protocol research. Building all three projects.
 
-- GitHub: github.com/pura-xyz/pura
+- GitHub: github.com/puraxyz/puraxyz
 - VR: github.com/espetey/vrdev
 - Buildlog: github.com/buildlogai/web
 
@@ -73,7 +73,7 @@ Solo builder. Background in software engineering and protocol research. Building
 ## Links
 
 - Website: https://pura.xyz
-- GitHub: https://github.com/pura-xyz/pura
+- GitHub: https://github.com/puraxyz/puraxyz
 - Paper: https://pura.xyz/paper
 - Explainer: https://pura.xyz/explainer
 - Basescan: https://sepolia.basescan.org/address/0x8e999a246afea241cf3c1d400dd7786cf591fa88

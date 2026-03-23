@@ -13,7 +13,7 @@ export function Footer() {
             pura.xyz
           </a>
           <a
-            href="https://github.com/pura-xyz"
+            href="https://github.com/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--color-text)] transition-colors"

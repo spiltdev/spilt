@@ -1,40 +1,77 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./Nav.module.css";
 
+const NAV_LINKS = [
+  { href: "/docs", label: "docs" },
+  { href: "/paper", label: "paper" },
+  { href: "/blog", label: "blog" },
+  { href: "/explainer", label: "how it works" },
+  { href: "/deploy", label: "deploy" },
+  { href: "/monitor", label: "monitor" },
+  { href: "/simulate", label: "simulate" },
+];
+
 export function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav className={styles.bar}>
-      <div className={styles.left}>
-        <Link href="/" className={styles.session}>
-          [pura<span className={styles.active}>*</span>]
+    <nav className={styles.nav}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.logo}>
+          pura<span>.</span>
         </Link>
-        <Link href="/docs" className={styles.tab}>
-          1:docs<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/paper" className={styles.tab}>
-          2:paper<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/blog" className={styles.tab}>
-          3:blog<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/explainer" className={styles.tab}>
-          4:how<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/deploy" className={styles.tab}>
-          5:deploy<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/monitor" className={styles.tab}>
-          6:monitor<span className={styles.inactive}>-</span>
-        </Link>
-        <Link href="/simulate" className={styles.tab}>
-          7:sim<span className={styles.inactive}>-</span>
-        </Link>
+
+        <div className={styles.links}>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link key={href} href={href} className={styles.link}>
+              {label}
+            </Link>
+          ))}
+          <a
+            href="https://github.com/puraxyz/puraxyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.github}
+            aria-label="GitHub"
+          >
+            GH
+          </a>
+        </div>
+
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
-      <div className={styles.right}>
-        <span className={styles.net}>
-          base-sepolia <span className={styles.dot}>●</span>
-        </span>
-      </div>
+
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {NAV_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={styles.link}
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <a
+            href="https://github.com/puraxyz/puraxyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.link}
+          >
+            github
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

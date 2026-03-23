@@ -6,7 +6,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.links}>
-            <a href="https://github.com/pura-xyz/pura" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/puraxyz/puraxyz" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
             <a href="https://sepolia.basescan.org/address/0x8e999a246afea241cf3c1d400dd7786cf591fa88" target="_blank" rel="noopener noreferrer">

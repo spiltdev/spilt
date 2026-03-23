@@ -60,7 +60,7 @@ Fair question. If you're coming from the AI/ML world, you might wonder why any o
 
 BPE is deployed on **[Base](https://base.org)**, an Ethereum [Layer 2](https://en.wikipedia.org/wiki/Blockchain_layer_2) network built by Coinbase. Base inherits Ethereum's security guarantees while offering transaction fees under $0.01 and confirmation times around 2 seconds. This makes it practical for the frequent capacity updates, rebalancing, and attestation submissions that BPE requires.
 
-You don't need to understand Ethereum's internals to use BPE. The [TypeScript SDK](https://github.com/pura-xyz/pura/tree/main/sdk) abstracts the blockchain interaction into straightforward function calls like `registerSink()`, `getPrice()`, and `rebalance()`.
+You don't need to understand Ethereum's internals to use BPE. The [TypeScript SDK](https://github.com/puraxyz/puraxyz/tree/main/sdk) abstracts the blockchain interaction into straightforward function calls like `registerSink()`, `getPrice()`, and `rebalance()`.
 
 ---
 
@@ -655,8 +655,8 @@ The economic incentive layer also addresses a structural problem: Lightning rout
 
 **Domain-Specific:**
 
-- **[NIP-XX Specification](https://github.com/pura-xyz/pura/blob/main/docs/nips/NIP-XX-backpressure-relay-economics.md)**: the Nostr relay economics standard
-- **[GitHub Repository](https://github.com/pura-xyz/pura)**: all code, MIT licensed
+- **[NIP-XX Specification](https://github.com/puraxyz/puraxyz/blob/main/docs/nips/NIP-XX-backpressure-relay-economics.md)**: the Nostr relay economics standard
+- **[GitHub Repository](https://github.com/puraxyz/puraxyz)**: all code, MIT licensed
 
 **Live Products:**
 

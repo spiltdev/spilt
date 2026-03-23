@@ -80,7 +80,7 @@ Live on Base Sepolia. 25 contracts. 249 passing tests. TypeScript SDK with 18 mo
 Three new thermodynamic contracts: TemperatureOracle, VirialMonitor, SystemStateEmitter.
 
 pura.xyz
-github.com/pura-xyz/pura
+github.com/puraxyz/puraxyz
 
 ---
 

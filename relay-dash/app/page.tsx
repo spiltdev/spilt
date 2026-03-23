@@ -85,7 +85,7 @@ export default function Home() {
             Docs
           </a>
           <a
-            href="https://github.com/pura-xyz/pura/tree/main/relay-dash"
+            href="https://github.com/puraxyz/puraxyz/tree/main/relay-dash"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLink}
@@ -218,7 +218,7 @@ await relay.joinRelayPool(walletClient, addrs, 0, nostrPubkey);`}</pre>
             Yes. Fork the repo, deploy your own relay-dash, and point it at
             your own relay fleet. See the{" "}
             <a
-              href="https://github.com/pura-xyz/pura/tree/main/relay-dash"
+              href="https://github.com/puraxyz/puraxyz/tree/main/relay-dash"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -219,7 +219,7 @@ export default function ExplainerPage() {
       <p>
         You don&apos;t need to understand Ethereum&apos;s internals to use BPE.
         The{" "}
-        <a href="https://github.com/pura-xyz/pura/tree/main/sdk">
+        <a href="https://github.com/puraxyz/puraxyz/tree/main/sdk">
           TypeScript SDK
         </a>{" "}
         abstracts the blockchain interaction into straightforward function calls
@@ -1049,13 +1049,13 @@ export default function ExplainerPage() {
       <h3>Domain-Specific</h3>
       <ul className={styles.links}>
         <li>
-          <a href="https://github.com/pura-xyz/pura/blob/main/docs/nips/NIP-XX-backpressure-relay-economics.md">
+          <a href="https://github.com/puraxyz/puraxyz/blob/main/docs/nips/NIP-XX-backpressure-relay-economics.md">
             NIP-XX Specification
           </a>
           : the Nostr relay economics standard
         </li>
         <li>
-          <a href="https://github.com/pura-xyz/pura">
+          <a href="https://github.com/puraxyz/puraxyz">
             GitHub Repository
           </a>
           : all code, MIT licensed

@@ -42,4 +42,4 @@ const capacity = await client.readContract({
 
 ## Source
 
-SDK source code is in [`sdk/src/`](https://github.com/pura-xyz/pura/tree/main/sdk/src).
+SDK source code is in [`sdk/src/`](https://github.com/puraxyz/puraxyz/tree/main/sdk/src).

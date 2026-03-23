@@ -118,7 +118,7 @@ export default function Home() {
             Docs
           </a>
           <a
-            href="https://github.com/pura-xyz/pura/tree/main/gateway"
+            href="https://github.com/puraxyz/puraxyz/tree/main/gateway"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLink}
@@ -290,7 +290,7 @@ curl ${typeof window !== "undefined" ? window.location.origin : "https://mandala
             Yes — Mandalay is fully open source. Fork it, deploy it, run your own
             gateway. See the{" "}
             <a
-              href="https://github.com/pura-xyz/pura/tree/main/gateway"
+              href="https://github.com/puraxyz/puraxyz/tree/main/gateway"
               target="_blank"
               rel="noopener noreferrer"
             >

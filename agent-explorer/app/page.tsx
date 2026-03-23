@@ -94,7 +94,7 @@ export default function Home() {
             Docs
           </a>
           <a
-            href="https://github.com/pura-xyz/pura/tree/main/agent-explorer"
+            href="https://github.com/puraxyz/puraxyz/tree/main/agent-explorer"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLink}
@@ -299,7 +299,7 @@ await verify.submitVerifiedCompletion(walletClient, addrs,
             Yes. Fork the repo and deploy your own instance pointing at your
             preferred agent population. See the{" "}
             <a
-              href="https://github.com/pura-xyz/pura/tree/main/agent-explorer"
+              href="https://github.com/puraxyz/puraxyz/tree/main/agent-explorer"
               target="_blank"
               rel="noopener noreferrer"
             >

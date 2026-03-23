@@ -212,10 +212,10 @@ cd docs/paper && pdflatex main && bibtex main && pdflatex main && pdflatex main
 Pura is early infrastructure looking for feedback from builders across AI agents, Nostr, Lightning, and DeFi.
 
 - **Website**: [pura.xyz](https://pura.xyz)
-- **GitHub**: [github.com/pura-xyz/pura](https://github.com/pura-xyz/pura)
+- **GitHub**: [github.com/puraxyz/puraxyz](https://github.com/puraxyz/puraxyz)
 - **Twitter/X**: Follow for updates (link TBD)
 
-If you're building decentralized systems that need capacity-aware economic coordination, [open an issue](https://github.com/pura-xyz/pura/issues) or reach out directly.
+If you're building decentralized systems that need capacity-aware economic coordination, [open an issue](https://github.com/puraxyz/puraxyz/issues) or reach out directly.
 
 ## License
 

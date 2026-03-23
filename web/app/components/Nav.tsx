@@ -38,7 +38,7 @@ export default function Nav() {
               </Link>
             ))}
             <a
-              href="https://github.com/pura-xyz/pura"
+              href="https://github.com/puraxyz/puraxyz"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.github}
@@ -72,7 +72,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://github.com/pura-xyz/pura"
+            href="https://github.com/puraxyz/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
