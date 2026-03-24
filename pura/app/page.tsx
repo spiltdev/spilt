@@ -764,7 +764,7 @@ export default function Dashboard() {
         <span>Settled via Superfluid + Lightning</span>
         <span className={styles.ecosystemSep}>·</span>
         <a
-          href="https://github.com/pura-xyz"
+          href="https://github.com/puraxyz"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.ecosystemLink}

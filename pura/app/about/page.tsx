@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
         <div style={{ display: "flex", gap: "1rem", fontSize: "0.72rem" }}>
           <a
-            href="https://github.com/pura-xyz"
+            href="https://github.com/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#d97706" }}

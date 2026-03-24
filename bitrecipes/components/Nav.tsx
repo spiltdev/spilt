@@ -29,7 +29,7 @@ export function Nav() {
             </Link>
           ))}
           <a
-            href="https://github.com/pura-xyz/pura"
+            href="https://github.com/puraxyz/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"

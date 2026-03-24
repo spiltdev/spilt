@@ -68,7 +68,7 @@ Solo builder. Background in software engineering. Building Pura, Buildlog, and V
 ## Links
 
 - Website: https://pura.xyz
-- GitHub (MIT): https://github.com/pura-xyz/pura
+- GitHub (MIT): https://github.com/puraxyz/puraxyz
 - Paper: https://pura.xyz/paper
 - Explainer: https://pura.xyz/explainer
 - Simulation: simulation/bpe_sim.py

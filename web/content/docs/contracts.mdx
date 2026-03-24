@@ -35,14 +35,14 @@ The foundational layer: capacity-weighted streaming payment routing for AI agent
 
 | Contract | Purpose |
 |----------|---------|
-| [`CapacityRegistry`](https://github.com/pura-xyz/pura/blob/main/contracts/src/CapacityRegistry.sol) | Task type + sink registry, commit-reveal capacity signals, EWMA smoothing |
-| [`StakeManager`](https://github.com/pura-xyz/pura/blob/main/contracts/src/StakeManager.sol) | Stake/unstake/slash, concave capacity cap $\sqrt{\text{stake}/\text{unit}}$ |
-| [`BackpressurePool`](https://github.com/pura-xyz/pura/blob/main/contracts/src/BackpressurePool.sol) | Superfluid GDA pool with capacity-weighted unit rebalancing |
-| [`EscrowBuffer`](https://github.com/pura-xyz/pura/blob/main/contracts/src/EscrowBuffer.sol) | Overflow buffer when all sinks saturated, FIFO drain |
-| [`Pipeline`](https://github.com/pura-xyz/pura/blob/main/contracts/src/Pipeline.sol) | Multi-stage pipeline composition with upstream congestion propagation |
-| [`PricingCurve`](https://github.com/pura-xyz/pura/blob/main/contracts/src/PricingCurve.sol) | EIP-1559-style dynamic fees based on queue length |
-| [`CompletionTracker`](https://github.com/pura-xyz/pura/blob/main/contracts/src/CompletionTracker.sol) | Statistical capacity verification with auto-slash |
-| [`OffchainAggregator`](https://github.com/pura-xyz/pura/blob/main/contracts/src/OffchainAggregator.sol) | Batched EIP-712 attestation submission (83.5% gas savings) |
+| [`CapacityRegistry`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/CapacityRegistry.sol) | Task type + sink registry, commit-reveal capacity signals, EWMA smoothing |
+| [`StakeManager`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/StakeManager.sol) | Stake/unstake/slash, concave capacity cap $\sqrt{\text{stake}/\text{unit}}$ |
+| [`BackpressurePool`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/BackpressurePool.sol) | Superfluid GDA pool with capacity-weighted unit rebalancing |
+| [`EscrowBuffer`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/EscrowBuffer.sol) | Overflow buffer when all sinks saturated, FIFO drain |
+| [`Pipeline`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/Pipeline.sol) | Multi-stage pipeline composition with upstream congestion propagation |
+| [`PricingCurve`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/PricingCurve.sol) | EIP-1559-style dynamic fees based on queue length |
+| [`CompletionTracker`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/CompletionTracker.sol) | Statistical capacity verification with auto-slash |
+| [`OffchainAggregator`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/OffchainAggregator.sol) | Batched EIP-712 attestation submission (83.5% gas savings) |
 
 ## Demurrage (2 contracts)
 
@@ -50,8 +50,8 @@ Time-decaying tokens that incentivize circulation over hoarding, layered with ve
 
 | Contract | Purpose |
 |----------|---------|
-| [`DemurrageToken`](https://github.com/pura-xyz/pura/blob/main/contracts/src/DemurrageToken.sol) | ERC-20 Super Token with configurable decay rate per epoch |
-| [`VelocityMetrics`](https://github.com/pura-xyz/pura/blob/main/contracts/src/VelocityMetrics.sol) | Epoch-based monetary velocity and turnover rate tracking |
+| [`DemurrageToken`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/DemurrageToken.sol) | ERC-20 Super Token with configurable decay rate per epoch |
+| [`VelocityMetrics`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/VelocityMetrics.sol) | Epoch-based monetary velocity and turnover rate tracking |
 
 ## Nostr Relays (2 contracts)
 
@@ -59,8 +59,8 @@ NIP-compliant relay capacity signaling and economic sustainability for relay ope
 
 | Contract | Purpose |
 |----------|---------|
-| [`RelayCapacityRegistry`](https://github.com/pura-xyz/pura/blob/main/contracts/src/RelayCapacityRegistry.sol) | Relay registration with EIP-712 signed capacity attestations, EWMA smoothing |
-| [`RelayPaymentPool`](https://github.com/pura-xyz/pura/blob/main/contracts/src/RelayPaymentPool.sol) | Anti-spam minimum + BPE-weighted streaming payment distribution |
+| [`RelayCapacityRegistry`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/RelayCapacityRegistry.sol) | Relay registration with EIP-712 signed capacity attestations, EWMA smoothing |
+| [`RelayPaymentPool`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/RelayPaymentPool.sol) | Anti-spam minimum + BPE-weighted streaming payment distribution |
 
 See also: [NIP-XX specification](/docs/nip-xx) for the full Nostr relay economics protocol.
 
@@ -70,9 +70,9 @@ Channel capacity oracles and cross-protocol routing for Lightning Network integr
 
 | Contract | Purpose |
 |----------|---------|
-| [`LightningCapacityOracle`](https://github.com/pura-xyz/pura/blob/main/contracts/src/LightningCapacityOracle.sol) | EWMA-smoothed Lightning node capacity from signed attestation batches |
-| [`LightningRoutingPool`](https://github.com/pura-xyz/pura/blob/main/contracts/src/LightningRoutingPool.sol) | BPE pool weighting nodes by capacity/congestion score |
-| [`CrossProtocolRouter`](https://github.com/pura-xyz/pura/blob/main/contracts/src/CrossProtocolRouter.sol) | Unified routing across Superfluid, Lightning, and on-chain settlement |
+| [`LightningCapacityOracle`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/LightningCapacityOracle.sol) | EWMA-smoothed Lightning node capacity from signed attestation batches |
+| [`LightningRoutingPool`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/LightningRoutingPool.sol) | BPE pool weighting nodes by capacity/congestion score |
+| [`CrossProtocolRouter`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/CrossProtocolRouter.sol) | Unified routing across Superfluid, Lightning, and on-chain settlement |
 
 ## Platform (2 contracts)
 
@@ -80,8 +80,8 @@ The composition layer: universal adapter and cross-domain reputation.
 
 | Contract | Purpose |
 |----------|---------|
-| [`UniversalCapacityAdapter`](https://github.com/pura-xyz/pura/blob/main/contracts/src/UniversalCapacityAdapter.sol) | Domain adapter registry, normalizes capacity 0–10000, routes to core BPE |
-| [`ReputationLedger`](https://github.com/pura-xyz/pura/blob/main/contracts/src/ReputationLedger.sol) | Cross-domain portable reputation, 3× negative weight, up to 50% stake discount |
+| [`UniversalCapacityAdapter`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/UniversalCapacityAdapter.sol) | Domain adapter registry, normalizes capacity 0–10000, routes to core BPE |
+| [`ReputationLedger`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/ReputationLedger.sol) | Cross-domain portable reputation, 3× negative weight, up to 50% stake discount |
 
 ## V2 Economy (5 contracts)
 
@@ -89,11 +89,11 @@ Recursive composition, quality-weighted routing, and temporal token mechanics. S
 
 | Contract | Purpose |
 |----------|---------||
-| [`EconomyFactory`](https://github.com/pura-xyz/pura/blob/main/contracts/src/EconomyFactory.sol) | Deploy a complete BPE economy in one transaction (4 templates: Marketplace, Cooperative, Pipeline, Guild) |
-| [`NestedPool`](https://github.com/pura-xyz/pura/blob/main/contracts/src/NestedPool.sol) | Hierarchical backpressure pools where sinks can be child economies (max depth 8) |
-| [`QualityOracle`](https://github.com/pura-xyz/pura/blob/main/contracts/src/QualityOracle.sol) | EWMA-smoothed latency, error rate, satisfaction scoring; effective capacity = declared × quality |
-| [`VelocityToken`](https://github.com/pura-xyz/pura/blob/main/contracts/src/VelocityToken.sol) | ERC-20 wrapper with idle-only linear decay, stream-exempt accounts skip decay |
-| [`UrgencyToken`](https://github.com/pura-xyz/pura/blob/main/contracts/src/UrgencyToken.sol) | TTL-stamped self-destructing token deposits (min 60s, max 30 days) |
+| [`EconomyFactory`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/EconomyFactory.sol) | Deploy a complete BPE economy in one transaction (4 templates: Marketplace, Cooperative, Pipeline, Guild) |
+| [`NestedPool`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/NestedPool.sol) | Hierarchical backpressure pools where sinks can be child economies (max depth 8) |
+| [`QualityOracle`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/QualityOracle.sol) | EWMA-smoothed latency, error rate, satisfaction scoring; effective capacity = declared × quality |
+| [`VelocityToken`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/VelocityToken.sol) | ERC-20 wrapper with idle-only linear decay, stream-exempt accounts skip decay |
+| [`UrgencyToken`](https://github.com/puraxyz/puraxyz/blob/main/contracts/src/UrgencyToken.sol) | TTL-stamped self-destructing token deposits (min 60s, max 30 days) |
 
 ## Deployment
 
@@ -118,7 +118,7 @@ All 213 tests pass across 21 test suites. The test suite covers:
 
 ## Source
 
-Contract source code is on [GitHub](https://github.com/pura-xyz/pura/tree/main/contracts/src).
+Contract source code is on [GitHub](https://github.com/puraxyz/puraxyz/tree/main/contracts/src).
 
 ---
 

@@ -32,7 +32,7 @@ Tech: Solidity 0.8.26, Superfluid GDA, EIP-712 attestations, off-chain aggregati
 This is testnet-stage. Looking for feedback on the mechanism design from anyone working on multi-agent systems or payment routing.
 
 Website: https://pura.xyz
-GitHub: https://github.com/pura-xyz/pura
+GitHub: https://github.com/puraxyz/puraxyz
 Paper: https://pura.xyz/paper
 Explainer: https://pura.xyz/explainer
 
@@ -52,7 +52,7 @@ Live on Base Sepolia with 25 contracts and a TypeScript SDK.
 
 - Docs: https://pura.xyz
 - Explainer: https://pura.xyz/explainer
-- GitHub: https://github.com/pura-xyz/pura
+- GitHub: https://github.com/puraxyz/puraxyz
 
 What would this need to look like for it to be useful in your agent stack?
 
@@ -70,7 +70,7 @@ Part of a stack with Buildlog (workflow capture) and VR (verification).
 
 Research modules extend the core to Lightning routing, Nostr relay economics, and demurrage tokens.
 
-pura.xyz | github.com/pura-xyz/pura
+pura.xyz | github.com/puraxyz/puraxyz
 
 ---
 
@@ -99,7 +99,7 @@ Simulations show 95.7% allocation efficiency vs 93.5% round-robin. Formal throug
 25 contracts on Base Sepolia, 249 tests, TypeScript SDK.
 
 - Explainer: https://pura.xyz/explainer
-- GitHub (MIT): https://github.com/pura-xyz/pura
+- GitHub (MIT): https://github.com/puraxyz/puraxyz
 - Paper: https://pura.xyz/paper
 
 Two questions:
@@ -127,7 +127,7 @@ The core handles AI agent payment routing. Research modules extend the GDA patte
 Any advice on rapid unit rebalancing across dynamic capacity changes? Interested in gotchas when multiple GDA pools share the same Super Token.
 
 - Docs: https://pura.xyz
-- GitHub: https://github.com/pura-xyz/pura
+- GitHub: https://github.com/puraxyz/puraxyz
 
 ---
 
@@ -149,7 +149,7 @@ Part of a three-project stack: Buildlog (agent workflow capture) + VR (outcome v
 TypeScript SDK with 18 action modules.
 
 - Docs: https://pura.xyz
-- GitHub: https://github.com/pura-xyz/pura
+- GitHub: https://github.com/puraxyz/puraxyz
 - Basescan: https://sepolia.basescan.org/address/0x8e999a246afea241cf3c1d400dd7786cf591fa88
 
 Looking for feedback from builders. Happy to walk anyone through the testnet.
@@ -168,7 +168,7 @@ Two Nostr-specific contracts are deployed on Base Sepolia: RelayCapacityRegistry
 
 Dashboard: https://relay.gold
 Blog post on the economics: https://pura.xyz/blog/relay-economics
-NIP-XX spec: github.com/pura-xyz/pura (docs/nips/)
+NIP-XX spec: github.com/puraxyz/puraxyz (docs/nips/)
 SDK docs: https://pura.xyz/docs/getting-started-relay
 
 Would relay operators integrate this? What is the minimum economic incentive that makes relay operation worth it?
@@ -190,7 +190,7 @@ This runs as a sidecar to Lightning. It does not modify the Lightning protocol i
 Dashboard: https://lightning.gold
 Blog post: https://pura.xyz/blog/lightning-capacity-signals
 SDK docs: https://pura.xyz/docs/getting-started-lightning
-GitHub: https://github.com/pura-xyz/pura
+GitHub: https://github.com/puraxyz/puraxyz
 
 ---
 
@@ -320,7 +320,7 @@ Shipped on Base Sepolia:
 - Animated capacity dashboard
 - Research paper with formal proofs
 
-All MIT. github.com/pura-xyz/pura
+All MIT. github.com/puraxyz/puraxyz
 
 ---
 
@@ -473,7 +473,7 @@ The protocol underneath (Pura) adapts backpressure routing from network theory. 
 Open source, MIT licensed. Looking for feedback from anyone calling multiple LLM providers.
 
 Website: https://mandalay.dev
-GitHub: https://github.com/pura-xyz/pura
+GitHub: https://github.com/puraxyz/puraxyz
 Paper: https://pura.xyz/paper
 
 ---
@@ -493,7 +493,7 @@ There is a live explorer at darksource.ai that shows registered agents, their ca
 Dashboard: https://darksource.ai
 Blog post: https://pura.xyz/blog/openclaw-reputation
 SDK docs: https://pura.xyz/docs/getting-started-openclaw
-GitHub: https://github.com/pura-xyz/pura
+GitHub: https://github.com/puraxyz/puraxyz
 
 If you are building anything where agents need to prove they did the work: what would the minimum integration look like for your stack?
 

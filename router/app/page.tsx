@@ -107,7 +107,7 @@ export default function Dashboard() {
           <span className={styles.logo}>◆</span> Pura Router
         </h1>
         <a
-          href="https://github.com/pura-xyz/pura/tree/main/router"
+          href="https://github.com/puraxyz/puraxyz/tree/main/router"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.githubLink}

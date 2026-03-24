@@ -82,7 +82,7 @@ Funding for:
 ## Links
 
 - Website: https://pura.xyz
-- GitHub: https://github.com/pura-xyz/pura
+- GitHub: https://github.com/puraxyz/puraxyz
 - Paper: https://pura.xyz/paper
 - Explainer: https://pura.xyz/explainer
 - Superfluid integration: contracts/src/BackpressurePool.sol, contracts/src/EscrowBuffer.sol

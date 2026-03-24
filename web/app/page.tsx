@@ -117,7 +117,7 @@ export default function Home() {
               Live reference &rarr;
             </a>
             <a
-              href="https://github.com/pura-xyz/pura"
+              href="https://github.com/puraxyz/puraxyz"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnSecondary}
@@ -290,7 +290,7 @@ export default function Home() {
                   <tr key={addr}>
                     <td>
                       <a
-                        href={`https://github.com/pura-xyz/pura/blob/main/contracts/src/${name}.sol`}
+                        href={`https://github.com/puraxyz/puraxyz/blob/main/contracts/src/${name}.sol`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -329,7 +329,7 @@ export default function Home() {
               <a href="https://pura.xyz" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
                 pura.xyz &rarr;
               </a>
-              <a href="https://github.com/pura-xyz/pura/tree/main/pura" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
+              <a href="https://github.com/puraxyz/puraxyz/tree/main/pura" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
                 GitHub &rarr;
               </a>
             </div>
@@ -345,7 +345,7 @@ export default function Home() {
               <a href="https://bit.recipes" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
                 bit.recipes &rarr;
               </a>
-              <a href="https://github.com/pura-xyz/pura/tree/main/bitrecipes" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
+              <a href="https://github.com/puraxyz/puraxyz/tree/main/bitrecipes" target="_blank" rel="noopener noreferrer" className={styles.refLink}>
                 GitHub &rarr;
               </a>
             </div>
@@ -378,7 +378,7 @@ export default function Home() {
             Paper
           </Link>
           <a
-            href="https://github.com/pura-xyz/pura"
+            href="https://github.com/puraxyz/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.btnSecondary}

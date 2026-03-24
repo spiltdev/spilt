@@ -36,7 +36,7 @@ export default function PaperIndex() {
       </p>
       <p className={styles.pdfLink}>
         <a
-          href="https://github.com/pura-xyz/pura/blob/main/docs/paper/main.pdf"
+          href="https://github.com/puraxyz/puraxyz/blob/main/docs/paper/main.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -91,11 +91,11 @@ export default function PaperIndex() {
       <p className={styles.note}>
         The full LaTeX source is available at{" "}
         <a
-          href="https://github.com/pura-xyz/pura/tree/main/docs/paper"
+          href="https://github.com/puraxyz/puraxyz/tree/main/docs/paper"
           target="_blank"
           rel="noopener noreferrer"
         >
-          github.com/pura-xyz/pura
+          github.com/puraxyz/puraxyz
         </a>
         .
       </p>

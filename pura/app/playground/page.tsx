@@ -66,7 +66,7 @@ export default function PlaygroundPage() {
           <a href="/explainer" className={styles.link}>How it works</a>
           <a href="/docs/getting-started" className={styles.link}>Get started</a>
           <a
-            href="https://github.com/pura-xyz/pura"
+            href="https://github.com/puraxyz/puraxyz"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}

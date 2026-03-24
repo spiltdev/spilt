@@ -99,7 +99,7 @@ Not asking Pinata to change any infrastructure. This sits alongside what you alr
 Would a 15-minute walkthrough be useful? Happy to do it in person given we are both in Omaha.
 
 pura.xyz
-github.com/pura-xyz/pura
+github.com/puraxyz/puraxyz
 
 ---
 

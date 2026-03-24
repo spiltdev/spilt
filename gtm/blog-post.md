@@ -59,7 +59,7 @@ The thermodynamic layer adds three contracts (TemperatureOracle, VirialMonitor, 
 Research modules extend the core mechanism to Lightning channel routing, Nostr relay economics, and demurrage tokens.
 
 - Docs: pura.xyz/docs
-- GitHub: github.com/pura-xyz/pura
+- GitHub: github.com/puraxyz/puraxyz
 - Paper: pura.xyz/paper
 - How it works: pura.xyz/explainer
 
@@ -67,4 +67,4 @@ If you are building multi-agent systems and your agents pay each other, try the 
 
 ---
 
-Pura is MIT-licensed open source. [GitHub](https://github.com/pura-xyz/pura) | [Docs](https://pura.xyz/docs) | [Paper](https://pura.xyz/paper)
+Pura is MIT-licensed open source. [GitHub](https://github.com/puraxyz/puraxyz) | [Docs](https://pura.xyz/docs) | [Paper](https://pura.xyz/paper)

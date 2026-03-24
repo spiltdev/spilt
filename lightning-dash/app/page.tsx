@@ -112,7 +112,7 @@ export default function Home() {
             Docs
           </a>
           <a
-            href="https://github.com/pura-xyz/pura/tree/main/lightning-dash"
+            href="https://github.com/puraxyz/puraxyz/tree/main/lightning-dash"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.headerLink}
@@ -287,7 +287,7 @@ await lightning.joinRoutingPool(walletClient, addrs, nodePubkey);`}</pre>
           <p className={styles.faqA}>
             Yes. Fork the repo and deploy your own instance. See the{" "}
             <a
-              href="https://github.com/pura-xyz/pura/tree/main/lightning-dash"
+              href="https://github.com/puraxyz/puraxyz/tree/main/lightning-dash"
               target="_blank"
               rel="noopener noreferrer"
             >
