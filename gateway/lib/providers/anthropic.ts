@@ -1,6 +1,58 @@
 import type { ChatMessage, ProviderConfig } from "../providers";
 
 /**
+ * Direct non-streaming Anthropic call. Bypasses the ReadableStream SSE adapter
+ * to avoid stream close propagation issues on serverless runtimes.
+ */
+export async function collectAnthropicResponse(
+  messages: ChatMessage[],
+  model?: string,
+  providerKey?: string,
+): Promise<string> {
+  const key = providerKey ?? process.env.ANTHROPIC_API_KEY;
+  if (!key) throw new Error("ANTHROPIC_API_KEY not set");
+
+  const systemMsg = messages.find((m) => m.role === "system");
+  const conversationMsgs = messages.filter((m) => m.role !== "system");
+
+  const body: Record<string, unknown> = {
+    model: model ?? "claude-sonnet-4-20250514",
+    max_tokens: 4096,
+    messages: conversationMsgs.map((m) => ({
+      role: m.role,
+      content: m.content,
+    })),
+  };
+  if (systemMsg) {
+    body.system = systemMsg.content;
+  }
+
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": key,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Anthropic ${res.status}: ${text}`);
+  }
+
+  const data = (await res.json()) as {
+    content: { type: string; text: string }[];
+  };
+
+  return data.content
+    .filter((c) => c.type === "text")
+    .map((c) => c.text)
+    .join("");
+}
+
+/**
  * Stream a chat completion from Anthropic, converting to OpenAI SSE format.
  * Anthropic uses a different request/response shape, so we adapt on the fly.
  */
