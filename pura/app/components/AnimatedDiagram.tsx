@@ -343,13 +343,6 @@ export default function AnimatedDiagram({
     roundRect(ctx, x0, y0, w, h, r);
     ctx.stroke();
 
-    // Dot
-    ctx.globalAlpha = 0.7;
-    ctx.beginPath();
-    ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-    ctx.fillStyle = color;
-    ctx.fill();
-
     // Label
     ctx.globalAlpha = 0.85;
     ctx.font = "500 9px var(--font-mono, monospace)";
