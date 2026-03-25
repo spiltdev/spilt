@@ -71,6 +71,30 @@ const NODE_W = 120;
 const NODE_H = 40;
 const PAD = 40;
 
+/** Point on a node's border where a ray toward (tx, ty) exits. */
+function borderPt(n: ResolvedNode, tx: number, ty: number): [number, number] {
+  const dx = tx - n.px;
+  const dy = ty - n.py;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+  if (dist < 1) return [n.px, n.py];
+  const ux = dx / dist;
+  const uy = dy / dist;
+  const shape = n.shape || "rect";
+  let t: number;
+  if (shape === "diamond") {
+    const d = 22 * Math.SQRT2;
+    t = d / (Math.abs(ux) + Math.abs(uy) || 1);
+  } else {
+    const hw = NODE_W / 2;
+    const lines = n.label.split("\n");
+    const hh = Math.max(NODE_H, 14 + lines.length * 13) / 2;
+    const sx = Math.abs(ux) > 0.001 ? hw / Math.abs(ux) : 1e9;
+    const sy = Math.abs(uy) > 0.001 ? hh / Math.abs(uy) : 1e9;
+    t = Math.min(sx, sy);
+  }
+  return [n.px + ux * t, n.py + uy * t];
+}
+
 /* ── Component ─────────────────────────────────────────────────── */
 
 export default function AnimatedDiagram({
@@ -178,6 +202,8 @@ export default function AnimatedDiagram({
       const toN = st.nodeMap.get(e.to);
       if (!fromN || !toN) continue;
 
+      const [fx, fy] = borderPt(fromN, toN.px, toN.py);
+      const [bx, by] = borderPt(toN, fromN.px, fromN.py);
       const [cx, cy] = edgeMidCtrl(st, fromN, toN);
       const ec = e.color || "#475569";
 
@@ -187,27 +213,27 @@ export default function AnimatedDiagram({
       ctx.strokeStyle = ec;
       ctx.globalAlpha = 0.18;
       ctx.lineWidth = 1;
-      ctx.moveTo(fromN.px, fromN.py);
-      ctx.quadraticCurveTo(cx, cy, toN.px, toN.py);
+      ctx.moveTo(fx, fy);
+      ctx.quadraticCurveTo(cx, cy, bx, by);
       ctx.stroke();
 
       // Arrow head
       const at = 0.92;
-      const [ax, ay] = bezier2(fromN.px, fromN.py, cx, cy, toN.px, toN.py, at);
-      const angle = Math.atan2(toN.py - ay, toN.px - ax);
+      const [ax, ay] = bezier2(fx, fy, cx, cy, bx, by, at);
+      const angle = Math.atan2(by - ay, bx - ax);
       ctx.globalAlpha = 0.25;
       ctx.setLineDash([]);
       ctx.beginPath();
-      ctx.moveTo(toN.px, toN.py);
-      ctx.lineTo(toN.px - 6 * Math.cos(angle - 0.35), toN.py - 6 * Math.sin(angle - 0.35));
-      ctx.lineTo(toN.px - 6 * Math.cos(angle + 0.35), toN.py - 6 * Math.sin(angle + 0.35));
+      ctx.moveTo(bx, by);
+      ctx.lineTo(bx - 6 * Math.cos(angle - 0.35), by - 6 * Math.sin(angle - 0.35));
+      ctx.lineTo(bx - 6 * Math.cos(angle + 0.35), by - 6 * Math.sin(angle + 0.35));
       ctx.closePath();
       ctx.fillStyle = ec;
       ctx.fill();
 
       // Edge label
       if (e.label) {
-        const [lx, ly] = bezier2(fromN.px, fromN.py, cx, cy, toN.px, toN.py, 0.5);
+        const [lx, ly] = bezier2(fx, fy, cx, cy, bx, by, 0.5);
         ctx.font = "500 8px var(--font-mono, monospace)";
         const tm = ctx.measureText(e.label);
         const pw = tm.width + 8;
@@ -234,9 +260,11 @@ export default function AnimatedDiagram({
       const toN = st.nodeMap.get(e.to);
       if (!fromN || !toN) continue;
 
+      const [fx, fy] = borderPt(fromN, toN.px, toN.py);
+      const [bx, by] = borderPt(toN, fromN.px, fromN.py);
       const [cx, cy] = edgeMidCtrl(st, fromN, toN);
       const t = ease(p.t);
-      const [px, py] = bezier2(fromN.px, fromN.py, cx, cy, toN.px, toN.py, t);
+      const [px, py] = bezier2(fx, fy, cx, cy, bx, by, t);
       const pColor = e.color || fromN.color;
 
       // Glow
@@ -285,14 +313,14 @@ export default function AnimatedDiagram({
       ctx.stroke();
       ctx.restore();
 
-      // Label (unrotated, shifted up so particles pass below)
+      // Label (unrotated)
       ctx.globalAlpha = 0.85;
       ctx.font = "500 9px var(--font-mono, monospace)";
       ctx.fillStyle = "#e4e4e7";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       for (let i = 0; i < lines.length; i++) {
-        ctx.fillText(lines[i], px, py - 7 + (i - (lines.length - 1) / 2) * 12);
+        ctx.fillText(lines[i], px, py + (i - (lines.length - 1) / 2) * 12);
       }
       ctx.globalAlpha = 1;
       return;
@@ -315,21 +343,21 @@ export default function AnimatedDiagram({
     roundRect(ctx, x0, y0, w, h, r);
     ctx.stroke();
 
-    // Dot (shifted up with label so particles pass below)
+    // Dot
     ctx.globalAlpha = 0.7;
     ctx.beginPath();
-    ctx.arc(px, py - 7, 2.5, 0, Math.PI * 2);
+    ctx.arc(px, py, 2.5, 0, Math.PI * 2);
     ctx.fillStyle = color;
     ctx.fill();
 
-    // Label (shifted up so particles pass below)
+    // Label
     ctx.globalAlpha = 0.85;
     ctx.font = "500 9px var(--font-mono, monospace)";
     ctx.fillStyle = "#e4e4e7";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i], px, py - 7 + (i - (lines.length - 1) / 2) * 12);
+      ctx.fillText(lines[i], px, py + (i - (lines.length - 1) / 2) * 12);
     }
     ctx.globalAlpha = 1;
   }
