@@ -1,0 +1,54 @@
+.accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.08rem 0.38rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.74em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.stream {
+  color: #ff9d66;
+  border-color: rgba(255, 157, 102, 0.24);
+  background: rgba(255, 157, 102, 0.08);
+}
+
+.json {
+  color: #7ec8ff;
+  border-color: rgba(126, 200, 255, 0.24);
+  background: rgba(126, 200, 255, 0.08);
+}
+
+.auth {
+  color: #c5a5ff;
+  border-color: rgba(197, 165, 255, 0.24);
+  background: rgba(197, 165, 255, 0.08);
+}
+
+.lightning {
+  color: #ffd866;
+  border-color: rgba(255, 216, 102, 0.24);
+  background: rgba(255, 216, 102, 0.08);
+}
+
+.endpoint {
+  color: #7fd5ca;
+  border-color: rgba(127, 213, 202, 0.24);
+  background: rgba(127, 213, 202, 0.08);
+}
+
+.success {
+  color: #a6e22e;
+  border-color: rgba(166, 226, 46, 0.24);
+  background: rgba(166, 226, 46, 0.08);
+}
+
+.muted {
+  color: var(--text-dim);
+  border-color: rgba(128, 128, 144, 0.24);
+  background: rgba(128, 128, 144, 0.08);
+}

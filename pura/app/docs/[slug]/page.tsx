@@ -6,12 +6,16 @@ import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import { getContentSlugs, getContentSource } from "@/lib/content";
 import { extractHeadings } from "@/lib/extractHeadings";
+import Accent from "../../components/Accent";
+import CodeBlock from "../../components/CodeBlock";
 import TableOfContents from "../../components/TableOfContents";
 import ProductGraph from "../../components/ProductGraph";
 import styles from "./page.module.css";
 
 const mdxComponents = {
+  Accent,
   ProductGraph,
+  pre: CodeBlock,
 };
 
 const katexMacros = {

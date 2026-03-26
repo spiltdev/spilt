@@ -6,6 +6,13 @@ description: Route LLM inference through Pura with automatic model selection and
 
 The Pura gateway is an OpenAI-compatible API that routes across four LLM providers (OpenAI, Anthropic, Groq, Gemini). It picks the best model for your task and tracks per-request costs.
 
+The shortest useful path looks like this:
+
+1. Create a key.
+2. Send a <Accent tone="stream">streaming</Accent> request and watch the SSE frames.
+3. Send the same request with <Accent tone="json">`"stream": false`</Accent> if you want one JSON object.
+4. Keep using the key for free until the gateway asks you to fund it with <Accent tone="lightning">Lightning</Accent>.
+
 ## Get an API key
 
 ```bash
@@ -16,16 +23,33 @@ curl -X POST https://api.pura.xyz/api/keys \
 
 Save the `key` from the response. It starts with `pura_`.
 
-## Send a request
+## Stream a request
+
+`POST /api/chat` streams Server-Sent Events by default. Plain `curl` will print each `data:` frame as it arrives. Use `-N` so `curl` does not buffer the stream.
 
 ```bash
-curl https://api.pura.xyz/api/chat \
+curl -N https://api.pura.xyz/api/chat \
   -H "Authorization: Bearer $PURA_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"messages":[{"role":"user","content":"Hello"}]}'
 ```
 
+You should see a sequence of `data: {...}` chunks followed by `data: [DONE]`. That is the normal success path for a streaming response.
+
 Pura picks the model automatically. Simple questions go to Groq or Gemini (fastest, cheapest). Complex reasoning goes to Anthropic or OpenAI (highest quality).
+
+## Get one JSON response
+
+If you want one completion object instead of streaming SSE, set <Accent tone="json">`"stream": false`</Accent>.
+
+```bash
+curl https://api.pura.xyz/api/chat \
+  -H "Authorization: Bearer $PURA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"messages":[{"role":"user","content":"Hello"}],"stream":false}'
+```
+
+This mode is easier to script when you want to pipe the result into `jq` or another JSON consumer.
 
 ## Use with the OpenAI SDK
 
@@ -78,12 +102,11 @@ curl https://api.pura.xyz/api/chat \
   -d '{"messages":[{"role":"user","content":"Analyze this code"}],"routing":{"quality":"high"}}'
 ```
 
-`quality: "high"` bumps the tier up — a mid-complexity task gets routed to premium-tier models. `quality: "low"` does the reverse, pushing toward cheaper models. `prefer: "anthropic"` soft-boosts a provider's selection weight without locking to it.
+`quality: "high"` bumps the tier up. A mid-complexity task gets routed to premium-tier models. `quality: "low"` does the reverse and pushes toward cheaper models. `prefer: "anthropic"` soft-boosts a provider's selection weight without locking to it.
 
 ## Force a specific model
 
 ```bash
-# Force GPT-4o
 curl https://api.pura.xyz/api/chat \
   -H "Authorization: Bearer $PURA_API_KEY" \
   -H "Content-Type: application/json" \
@@ -121,7 +144,7 @@ With BYOK, Pura still routes and tracks costs, but inference charges go to your 
 
 ## Lightning funding
 
-The first 5,000 requests are free. After that, the gateway returns HTTP 402 with a Lightning funding invoice. You can also create one directly:
+The first 5,000 requests are free. After that, the gateway returns HTTP 402 with a <Accent tone="lightning">Lightning funding invoice</Accent>. You can also create one directly:
 
 ```bash
 # Create a funding invoice
@@ -134,7 +157,7 @@ curl -X POST https://api.pura.xyz/api/wallet/fund \
 # - paymentRequest: raw BOLT11 string
 # - invoiceUrl: hosted invoice page with QR code
 # - statusUrl: authenticated status endpoint
-
+```
 
 Pay the BOLT11 invoice in your wallet, or open `invoiceUrl` on mobile and let the wallet handle the `lightning:` deeplink.
 

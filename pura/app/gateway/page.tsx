@@ -1,4 +1,6 @@
 import styles from "../page.module.css";
+import Accent from "../components/Accent";
+import CodeBlock from "../components/CodeBlock";
 import { KeyGenerator } from "../components/KeyGenerator";
 
 export const metadata = {
@@ -13,9 +15,9 @@ export default function GatewayPage() {
         <h1 className={styles.title}>LLM inference gateway</h1>
         <p className={styles.subtitle}>
           One endpoint, four providers. Pura scores task complexity and routes
-          to the best model for the task. You get per-request cost
-          headers, daily budget caps, and overnight spend reports. Settlement
-          runs on Lightning.
+          to the best model for the task. You get <Accent tone="endpoint">routing headers</Accent>,
+          <Accent tone="json"> overnight spend visibility</Accent>, and a <Accent tone="lightning">Lightning-funded</Accent>
+          paid path once the free tier runs out.
         </p>
       </header>
 
@@ -34,16 +36,36 @@ export default function GatewayPage() {
         <h2 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 600, color: "var(--text)", marginBottom: "0.6rem" }}>
           Quick start
         </h2>
-        <pre className={styles.codePre}>{`# Get an API key
-curl -X POST https://api.pura.xyz/api/keys \\
+        <p className={styles.desc}>
+          The shortest useful path is: mint a key, send one <Accent tone="stream">streaming</Accent> request,
+          then switch to <Accent tone="json">single JSON</Accent> if your shell script expects one object instead of SSE frames.
+        </p>
+        <CodeBlock
+          language="bash"
+          label="create key"
+          tone="auth"
+          code={`curl -X POST https://api.pura.xyz/api/keys \\
   -H "Content-Type: application/json" \\
-  -d '{"label":"my-agent"}'
-
-# Send a request (auto model selection)
-curl https://api.pura.xyz/api/chat \\
+  -d '{"label":"my-agent"}'`}
+        />
+        <CodeBlock
+          language="bash"
+          label="streaming response"
+          tone="stream"
+          code={`curl -N https://api.pura.xyz/api/chat \\
   -H "Authorization: Bearer pura_YOUR_KEY" \\
   -H "Content-Type: application/json" \\
-  -d '{"messages":[{"role":"user","content":"Hello"}]}'`}</pre>
+  -d '{"messages":[{"role":"user","content":"Hello"}]}'`}
+        />
+        <CodeBlock
+          language="bash"
+          label="single JSON response"
+          tone="json"
+          code={`curl https://api.pura.xyz/api/chat \\
+  -H "Authorization: Bearer pura_YOUR_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{"messages":[{"role":"user","content":"Hello"}],"stream":false}'`}
+        />
       </section>
 
       <hr className={styles.divider} />
@@ -52,7 +74,15 @@ curl https://api.pura.xyz/api/chat \\
         <h2 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 600, color: "var(--text)", marginBottom: "0.6rem" }}>
           OpenAI SDK drop-in
         </h2>
-        <pre className={styles.codePre}>{`import OpenAI from "openai";
+        <p className={styles.desc}>
+          Existing OpenAI-compatible clients can point at <Accent tone="endpoint">https://api.pura.xyz/api</Accent>
+          and keep the same request format.
+        </p>
+        <CodeBlock
+          language="typescript"
+          label="openai-compatible"
+          tone="endpoint"
+          code={`import OpenAI from "openai";
 
 const client = new OpenAI({
   baseURL: "https://api.pura.xyz/api",
@@ -62,7 +92,8 @@ const client = new OpenAI({
 const res = await client.chat.completions.create({
   model: "auto",  // Pura picks the best model
   messages: [{ role: "user", content: "Explain backpressure routing." }],
-});`}</pre>
+});`}
+        />
       </section>
 
       <hr className={styles.divider} />
@@ -118,7 +149,11 @@ const res = await client.chat.completions.create({
         <h2 style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", fontWeight: 600, color: "var(--text)", marginBottom: "0.6rem" }}>
           Cost report
         </h2>
-        <pre className={styles.codePre}>{`curl https://api.pura.xyz/api/report \\
+        <CodeBlock
+          language="bash"
+          label="report"
+          tone="success"
+          code={`curl https://api.pura.xyz/api/report \\
   -H "Authorization: Bearer pura_YOUR_KEY"
 
 # Returns JSON:
@@ -128,7 +163,8 @@ const res = await client.chat.completions.create({
 #   "requestCount": 127,
 #   "averageCostUsd": 0.00033,
 #   "perModel": { "groq": { ... }, "openai": { ... } }
-# }`}</pre>
+# }`}
+        />
       </section>
 
       <hr className={styles.divider} />
@@ -138,9 +174,14 @@ const res = await client.chat.completions.create({
           Lightning wallet
         </h2>
         <p className={styles.desc}>
-          The first 5,000 requests are free. After that, create a Lightning invoice, pay it, and let the gateway credit your key balance:
+          The first 5,000 requests are free. After that, the gateway returns a <Accent tone="lightning">Lightning invoice</Accent>.
+          Pay it, watch the status endpoint flip, then keep sending requests against the same key.
         </p>
-        <pre className={styles.codePre}>{`# Create a funding invoice (10,000 sats ~ $4)
+        <CodeBlock
+          language="bash"
+          label="fund key"
+          tone="lightning"
+          code={`# Create a funding invoice (10,000 sats ~ $4)
 curl -X POST https://api.pura.xyz/api/wallet/fund \\
   -H "Authorization: Bearer pura_YOUR_KEY" \\
   -H "Content-Type: application/json" \\
@@ -149,12 +190,13 @@ curl -X POST https://api.pura.xyz/api/wallet/fund \\
 # The response includes invoiceUrl and lightningUrl
 
 # Check invoice status
-curl "https://api.pura.xyz/api/wallet/status?invoiceId=INV_ID" \
+curl "https://api.pura.xyz/api/wallet/status?invoiceId=INV_ID" \\
   -H "Authorization: Bearer pura_YOUR_KEY"
 
 # Check balance
 curl https://api.pura.xyz/api/wallet/balance \\
-  -H "Authorization: Bearer pura_YOUR_KEY"`}</pre>
+  -H "Authorization: Bearer pura_YOUR_KEY"`}
+        />
       </section>
 
       <hr className={styles.divider} />
