@@ -4,6 +4,7 @@ import { incrementRequests } from "@/lib/keys";
 import { selectProvider, getFallbackProvider } from "@/lib/routing";
 import type { RoutingHints } from "@/lib/routing";
 import { streamChat } from "@/lib/stream";
+import { collectAnthropicResponse } from "@/lib/providers/anthropic";
 import { recordCompletionEpoch } from "@/lib/completion";
 import { maybeRebalance } from "@/lib/rebalance";
 import { checkRateLimitAsync } from "@/lib/ratelimit";
@@ -242,6 +243,38 @@ export async function POST(request: Request) {
   }
 
   // Non-streaming: collect full response
+  // For Anthropic, use direct API call to avoid ReadableStream close issues
+  if (!wantStream && (provider === "anthropic")) {
+    try {
+      const content = await collectAnthropicResponse(messages, body.model, providerKey);
+      return NextResponse.json(
+        {
+          id: `chatcmpl-${Date.now()}`,
+          object: "chat.completion",
+          created: Math.floor(Date.now() / 1000),
+          model: body.model ?? provider,
+          choices: [
+            {
+              index: 0,
+              message: { role: "assistant", content },
+              finish_reason: "stop",
+            },
+          ],
+          usage: {
+            prompt_tokens: promptTokens,
+            completion_tokens: estimateTokens(content),
+            total_tokens: promptTokens + estimateTokens(content),
+          },
+        },
+        { headers: puraHeaders },
+      );
+    } catch (e) {
+      // Fall through to stream-based collection
+      log.info("anthropic.collect_fallback", { error: (e as Error).message });
+    }
+  }
+
+  // Non-streaming: collect from stream
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   let fullContent = "";
