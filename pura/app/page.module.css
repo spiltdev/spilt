@@ -388,6 +388,10 @@
   color: var(--text);
 }
 
+.homeLinkRow {
+  margin-top: 0.75rem;
+}
+
 /* ── data tables ── */
 
 .tbl {

@@ -1,0 +1,94 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8ec9ff;
+  margin-bottom: 0.55rem;
+}
+
+.hero h1 {
+  font-size: 2.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 68ch;
+}
+
+.links {
+  margin-top: 1rem;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #ffd783;
+}
+
+.memo {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  padding: 1.25rem;
+}
+
+.section + .section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.sectionHead {
+  display: flex;
+  gap: 0.85rem;
+  align-items: baseline;
+  margin-bottom: 0.7rem;
+}
+
+.sectionNumber {
+  font-family: var(--font-mono);
+  color: #ffd783;
+  font-size: 0.76rem;
+}
+
+.section h2 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.section p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 0.8rem 0 0;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 1.4rem 1rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .memo {
+    padding: 1rem;
+  }
+
+  .sectionHead {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}

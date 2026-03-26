@@ -1,0 +1,26 @@
+.wrap {
+  margin-top: 0.65rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.55rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.link:hover {
+  color: var(--text);
+  border-color: var(--border-bright);
+}
+
+.label {
+  color: #ffd783;
+}

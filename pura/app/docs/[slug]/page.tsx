@@ -9,6 +9,7 @@ import { getContentSlugs, getContentSource } from "@/lib/content";
 import { extractHeadings } from "@/lib/extractHeadings";
 import Accent from "../../components/Accent";
 import CodeBlock from "../../components/CodeBlock";
+import DiagramBacklink from "../../components/DiagramBacklink";
 import TableOfContents from "../../components/TableOfContents";
 import ProductGraph from "../../components/ProductGraph";
 import styles from "./page.module.css";
@@ -21,9 +22,18 @@ function DocTable(props: ComponentPropsWithoutRef<"table">) {
   );
 }
 
+function DocsProductGraph() {
+  return (
+    <div className={styles.diagramEmbed}>
+      <ProductGraph />
+      <DiagramBacklink id="product-ecosystem" />
+    </div>
+  );
+}
+
 const mdxComponents = {
   Accent,
-  ProductGraph,
+  ProductGraph: DocsProductGraph,
   pre: CodeBlock,
   table: DocTable,
 };

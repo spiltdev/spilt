@@ -1,13 +1,16 @@
 import AnimatedDiagram from "../components/AnimatedDiagram";
+import type { DiagramProps } from "../components/AnimatedDiagram";
 import AnimatedSequence from "../components/AnimatedSequence";
+import type { SequenceProps } from "../components/AnimatedSequence";
+import DiagramBacklink from "../components/DiagramBacklink";
 import TableOfContents from "../components/TableOfContents";
 import { Radio, Zap, Coins, Globe, PawPrint, Thermometer } from "lucide-react";
 import styles from "./page.module.css";
 import {
   problemDiagram, solutionDiagram, pipelineDiagram, stakeDiagram,
   verifySequence, priceDiagram, routeDiagram, bufferDiagram,
-  bigPictureDiagram, domainsDiagram, lightningDiagram, nostrDiagram,
-  demurrageDiagram, reputationDiagram, openclawSequence, bitcoinDiagram,
+  domainsDiagram, lightningDiagram, nostrDiagram,
+  demurrageDiagram, reputationDiagram, openclawSequence,
   fourPlanesDiagram, fiveObjectsDiagram, thermoDiagram,
   dvmAdapterDiagram, settlementRailsDiagram, shadowModeDiagram,
   circuitBreakerSequence,
@@ -65,6 +68,24 @@ function StepNum({ n }: { n: number }) {
     >
       {n}
     </span>
+  );
+}
+
+function ExplainerDiagram({ id, diagram }: { id: string; diagram: DiagramProps }) {
+  return (
+    <>
+      <AnimatedDiagram {...diagram} />
+      <DiagramBacklink id={id} />
+    </>
+  );
+}
+
+function ExplainerSequence({ id, sequence }: { id: string; sequence: SequenceProps }) {
+  return (
+    <>
+      <AnimatedSequence {...sequence} />
+      <DiagramBacklink id={id} />
+    </>
   );
 }
 
@@ -169,7 +190,7 @@ export default function ExplainerPage() {
         because the kitchen is overwhelmed.
       </p>
 
-      <AnimatedDiagram {...problemDiagram} />
+      <ExplainerDiagram id="problem-diagram" diagram={problemDiagram} />
 
       <p>
         Data networks solved this decades ago. Routers drop packets or reroute
@@ -185,7 +206,7 @@ export default function ExplainerPage() {
         the work.
       </p>
 
-      <AnimatedDiagram {...solutionDiagram} />
+      <ExplainerDiagram id="solution-diagram" diagram={solutionDiagram} />
 
       <hr />
 
@@ -198,7 +219,7 @@ export default function ExplainerPage() {
         backpressure when any plane is saturated.
       </p>
 
-      <AnimatedDiagram {...fourPlanesDiagram} />
+      <ExplainerDiagram id="four-planes" diagram={fourPlanesDiagram} />
 
       <table>
         <thead>
@@ -239,7 +260,7 @@ export default function ExplainerPage() {
         contract.
       </p>
 
-      <AnimatedDiagram {...fiveObjectsDiagram} />
+      <ExplainerDiagram id="five-objects" diagram={fiveObjectsDiagram} />
 
       <table>
         <thead>
@@ -283,7 +304,7 @@ export default function ExplainerPage() {
         Five operations form a pipeline. Each feeds into the next.
       </p>
 
-      <AnimatedDiagram {...pipelineDiagram} />
+      <ExplainerDiagram id="pipeline" diagram={pipelineDiagram} />
 
       <hr />
 
@@ -301,7 +322,7 @@ export default function ExplainerPage() {
         unprofitable.
       </p>
 
-      <AnimatedDiagram {...stakeDiagram} />
+      <ExplainerDiagram id="stake-weighting" diagram={stakeDiagram} />
 
       <p>
         A{" "}
@@ -318,7 +339,7 @@ export default function ExplainerPage() {
         built-in lie detector:
       </p>
 
-      <AnimatedSequence {...verifySequence} />
+      <ExplainerSequence id="verification-sequence" sequence={verifySequence} />
 
       <p>
         Every completed task produces a dual-signed receipt: both the agent
@@ -340,7 +361,7 @@ export default function ExplainerPage() {
         Pura makes busy agents more expensive:
       </p>
 
-      <AnimatedDiagram {...priceDiagram} />
+      <ExplainerDiagram id="price-curve" diagram={priceDiagram} />
 
       <p>The price has two parts:</p>
       <ul>
@@ -366,7 +387,7 @@ export default function ExplainerPage() {
         a bigger slice. No middleman, no manual intervention.
       </p>
 
-      <AnimatedDiagram {...routeDiagram} />
+      <ExplainerDiagram id="routing-pool" diagram={routeDiagram} />
 
       <p>
         When capacity changes (an agent gets busy, or a new one joins), anyone
@@ -383,7 +404,7 @@ export default function ExplainerPage() {
         signal: stop sending.
       </p>
 
-      <AnimatedDiagram {...bufferDiagram} />
+      <ExplainerDiagram id="escrow-buffer" diagram={bufferDiagram} />
 
       <hr />
 
@@ -406,7 +427,7 @@ export default function ExplainerPage() {
         and <code>DemurrageToken</code> implement the framework.
       </p>
 
-      <AnimatedDiagram {...thermoDiagram} />
+      <ExplainerDiagram id="thermodynamic-layer" diagram={thermoDiagram} />
 
       <hr />
 
@@ -524,7 +545,7 @@ export default function ExplainerPage() {
         back toward equilibrium.
       </p>
 
-      <AnimatedDiagram {...demurrageDiagram} />
+      <ExplainerDiagram id="demurrage-loop" diagram={demurrageDiagram} />
 
       <p>
         <a href="https://en.wikipedia.org/wiki/Demurrage_(currency)">Demurrage</a>{" "}
@@ -574,7 +595,7 @@ export default function ExplainerPage() {
         </tbody>
       </table>
 
-      <AnimatedSequence {...circuitBreakerSequence} />
+      <ExplainerSequence id="circuit-breaker" sequence={circuitBreakerSequence} />
 
       <p>
         When a stage collapses, the pipeline decouples it: upstream effective
@@ -601,7 +622,7 @@ export default function ExplainerPage() {
         existing DVM into the protocol without changing the DVM&apos;s own code.
       </p>
 
-      <AnimatedDiagram {...dvmAdapterDiagram} />
+      <ExplainerDiagram id="dvm-adapters" diagram={dvmAdapterDiagram} />
 
       <ul>
         <li>
@@ -633,7 +654,7 @@ export default function ExplainerPage() {
         <code>PaymentPool</code> selects the best rail for each settlement:
       </p>
 
-      <AnimatedDiagram {...settlementRailsDiagram} />
+      <ExplainerDiagram id="settlement-rails" diagram={settlementRailsDiagram} />
 
       <table>
         <thead>
@@ -677,7 +698,7 @@ export default function ExplainerPage() {
         routing, temperature and virial calculations, circuit breaker phases.
       </p>
 
-      <AnimatedDiagram {...shadowModeDiagram} />
+      <ExplainerDiagram id="shadow-mode" diagram={shadowModeDiagram} />
 
       <p>
         Shadow mode is free, has zero blockchain dependencies, and feeds a
@@ -699,7 +720,7 @@ export default function ExplainerPage() {
         allocation. Beyond AI agents, Pura extends to four research domains:
       </p>
 
-      <AnimatedDiagram {...domainsDiagram} />
+      <ExplainerDiagram id="domain-map" diagram={domainsDiagram} />
 
       <hr />
 
@@ -735,7 +756,7 @@ export default function ExplainerPage() {
         </li>
       </ul>
 
-      <AnimatedDiagram {...lightningDiagram} />
+      <ExplainerDiagram id="lightning-sidecar" diagram={lightningDiagram} />
 
       <p>
         This runs on Base as a sidecar to Lightning. Pathfinding algorithms can
@@ -778,7 +799,7 @@ export default function ExplainerPage() {
         </li>
       </ol>
 
-      <AnimatedDiagram {...nostrDiagram} />
+      <ExplainerDiagram id="nostr-relays" diagram={nostrDiagram} />
 
       <p>
         Relay operators who invest in real capacity earn proportionally more.
@@ -818,7 +839,7 @@ export default function ExplainerPage() {
         </li>
       </ul>
 
-      <AnimatedDiagram {...reputationDiagram} />
+      <ExplainerDiagram id="reputation-ledger" diagram={reputationDiagram} />
 
       <hr />
 
@@ -852,7 +873,7 @@ export default function ExplainerPage() {
         </li>
       </ol>
 
-      <AnimatedSequence {...openclawSequence} />
+      <ExplainerSequence id="openclaw-flow" sequence={openclawSequence} />
 
       <p>
         Agents opt in by installing a Pura coordination skill that handles

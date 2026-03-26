@@ -1,0 +1,168 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  color: #ffd783;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  margin-bottom: 0.6rem;
+}
+
+.hero h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  max-width: 68ch;
+  line-height: 1.65;
+}
+
+.jumpRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.jumpLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.6rem;
+}
+
+.jumpLink:hover {
+  color: var(--text);
+  border-color: var(--border-bright);
+}
+
+.section {
+  margin-top: 2rem;
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff9d66;
+  margin-bottom: 1rem;
+}
+
+.rule {
+  flex: 1;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  padding: 1rem;
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.cardHeader h2 {
+  font-size: 1.15rem;
+}
+
+.cardMeta {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-size: 0.64rem;
+  margin-bottom: 0.35rem;
+}
+
+.anchorTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+.summary {
+  color: var(--text-muted);
+  max-width: 70ch;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.preview {
+  margin: 0.75rem 0 0.4rem;
+}
+
+.locationBlock {
+  margin-top: 0.4rem;
+}
+
+.locationLabel {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-size: 0.64rem;
+  margin-bottom: 0.45rem;
+}
+
+.locationLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.locationLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #8ec9ff;
+  border: 1px solid rgba(142, 201, 255, 0.16);
+  background: rgba(142, 201, 255, 0.04);
+  padding: 0.32rem 0.55rem;
+}
+
+.locationLink:hover {
+  color: #d8efff;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 1.4rem 1rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+  }
+}

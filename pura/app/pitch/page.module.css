@@ -1,0 +1,175 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.2rem 1.25rem 4rem;
+}
+
+.hero {
+  margin-bottom: 1.8rem;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffd783;
+  margin-bottom: 0.55rem;
+}
+
+.hero h1 {
+  font-size: 2.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  max-width: 72ch;
+  line-height: 1.7;
+}
+
+.memoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.memoCard {
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(255, 216, 102, 0.05), rgba(255, 255, 255, 0.015));
+  padding: 1rem;
+  color: inherit;
+}
+
+.memoCard h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.memoCard p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.memoCard:hover {
+  border-color: var(--border-bright);
+}
+
+.memoLabel {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8ec9ff;
+  margin-bottom: 0.45rem;
+}
+
+.memoLink {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #ffd783;
+}
+
+.deckSection {
+  margin-top: 2rem;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff9d66;
+  margin-bottom: 1rem;
+}
+
+.rule {
+  flex: 1;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.deckGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.slide {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(255, 216, 102, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
+  padding: 1rem;
+}
+
+.slideTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.slideNumber {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #ffd783;
+}
+
+.slideKicker {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.slide h3 {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+
+.slideBody {
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.bullets {
+  padding-left: 1rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-top: 0;
+}
+
+.proof {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #a6e22e;
+  border-top: 1px solid rgba(166, 226, 46, 0.16);
+  padding-top: 0.75rem;
+}
+
+@media (max-width: 960px) {
+  .memoGrid,
+  .deckGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide {
+    min-height: 0;
+  }
+}

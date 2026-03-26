@@ -5,9 +5,10 @@ import styles from "./page.module.css";
 import { AsciiBar } from "./components/AsciiBar";
 import { StatusDot } from "./components/StatusDot";
 import AnimatedDiagram from "./components/AnimatedDiagram";
-import type { DiagramNode, DiagramEdge, DiagramGroup } from "./components/AnimatedDiagram";
 import { DemoTerminal } from "./components/DemoTerminal";
+import DiagramBacklink from "./components/DiagramBacklink";
 import ProductGraph from "./components/ProductGraph";
+import { HERO_DIAGRAM } from "@/lib/siteDiagrams";
 import {
   generateRelaySeedState,
   generateLightningSeedState,
@@ -83,34 +84,6 @@ function SectionHead({
     </div>
   );
 }
-
-/* ── Hero diagram data ── */
-
-const HERO_NODES: DiagramNode[] = [
-  { id: "agent",    label: "Your Agent",    x: 0.10, y: 0.45, color: "#22d3ee", shape: "pill" },
-  { id: "gateway",  label: "Pura\nGateway",  x: 0.30, y: 0.45, color: "#f97316", shape: "rect" },
-  { id: "openai",   label: "OpenAI",        x: 0.60, y: 0.0,  color: "#4ade80", shape: "rect" },
-  { id: "anthropic", label: "Anthropic",    x: 0.60, y: 0.30, color: "#a78bfa", shape: "rect" },
-  { id: "groq",     label: "Groq",          x: 0.60, y: 0.60, color: "#f97316", shape: "rect" },
-  { id: "gemini",   label: "Gemini",        x: 0.60, y: 0.90, color: "#3b82f6", shape: "rect" },
-  { id: "lightning", label: "Lightning\nSettlement", x: 0.30, y: 0.95, color: "#fbbf24", shape: "diamond" },
-  { id: "market",   label: "Marketplace",   x: 0.92, y: 0.45, color: "#22d3ee", shape: "pill" },
-];
-
-const HERO_EDGES: DiagramEdge[] = [
-  { from: "agent",   to: "gateway",  color: "#22d3ee" },
-  { from: "gateway", to: "openai",   color: "#4ade80" },
-  { from: "gateway", to: "anthropic", color: "#a78bfa" },
-  { from: "gateway", to: "groq",     color: "#f97316" },
-  { from: "gateway", to: "gemini",   color: "#3b82f6" },
-  { from: "gateway", to: "lightning", color: "#fbbf24", dashed: true },
-  { from: "gateway", to: "market",   color: "#22d3ee", dashed: true },
-  { from: "market",  to: "agent",    color: "#22d3ee", dashed: true },
-];
-
-const HERO_GROUPS: DiagramGroup[] = [
-  { id: "providers", label: "LLM PROVIDERS", x: 0.58, y: 0.05, w: 0.04, h: 0.80, color: "#808090" },
-];
 
 const STEPS = [
   {
@@ -276,14 +249,8 @@ export default function Dashboard() {
           <a href="/gateway" className={styles.ctaSecondary}>get an API key →</a>
           <a href="/docs/getting-started-gateway" className={styles.ctaSecondary}>quickstart →</a>
         </div>
-        <AnimatedDiagram
-          nodes={HERO_NODES}
-          edges={HERO_EDGES}
-          groups={HERO_GROUPS}
-          height={300}
-          direction="LR"
-          ariaLabel="Agent routing through Pura Gateway to LLM providers with Lightning settlement"
-        />
+        <AnimatedDiagram {...HERO_DIAGRAM} />
+        <DiagramBacklink id="homepage-gateway-routing" />
       </header>
 
       {/* ═══════════ LIVE STATS BAR ═══════════ */}
@@ -301,6 +268,35 @@ export default function Dashboard() {
 
       <hr className={styles.divider} />
 
+      <section className={styles.problemSection}>
+        <SectionHead label="why teams switch" color="var(--red)" />
+        <p className={styles.solutionHeadline}>
+          Pura gives one truthful control surface for three things that usually break apart: model choice, spend visibility, and machine-to-machine payment.
+        </p>
+        <div className={styles.problemGrid}>
+          <div className={styles.problemCard}>
+            <span className={styles.problemLabel}>STOP HARD-CODING PROVIDERS</span>
+            <p className={styles.problemBody}>
+              Your agent should not fail because one upstream model got slower, pricier, or rate-limited. Pura turns four provider integrations into one routing surface.
+            </p>
+          </div>
+          <div className={styles.problemCard}>
+            <span className={styles.problemLabel}>SEE WHAT EACH REQUEST COST</span>
+            <p className={styles.problemBody}>
+              Every response carries provider and cost metadata. You do not have to guess where the money went after the run is over.
+            </p>
+          </div>
+          <div className={styles.problemCard}>
+            <span className={styles.problemLabel}>TURN AGENT WORK INTO REVENUE</span>
+            <p className={styles.problemBody}>
+              The same system that routes your spend can route demand toward your own skills, so the agent stack is not only a cost center.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr className={styles.divider} />
+
       {/* ═══════════ INCOME STATEMENT PROOF ═══════════ */}
       <section className={styles.section}>
         <SectionHead label="daily income statement" color="var(--green)" />
@@ -312,6 +308,9 @@ export default function Dashboard() {
         <pre className={styles.codePre} style={{ fontSize: "0.78rem", lineHeight: 1.5 }}>
           {INCOME_PREVIEW}
         </pre>
+        <p className={styles.solutionHeadline}>
+          This is the practical promise of the product: not smarter words about AI, but a cleaner operating loop for inference spend and machine revenue.
+        </p>
       </section>
 
       <hr className={styles.divider} />
@@ -319,6 +318,9 @@ export default function Dashboard() {
       {/* ═══════════ HOW IT WORKS ═══════════ */}
       <section className={styles.section}>
         <SectionHead label="how it works" color="var(--green)" />
+        <p className={styles.solutionHeadline}>
+          Most teams still wire one provider and hope. Pura treats routing, fallback, and budget pressure as first-class system behavior instead of afterthought glue code.
+        </p>
         <div className={styles.pipeline}>
           {STEPS.map((s, i) => (
             <div key={s.name} className={styles.pipelineStep}>
@@ -382,6 +384,7 @@ const openai = new OpenAI({ baseURL: "https://api.pura.xyz/v1" });`}</pre>
           Everything feeds the dashboard.
         </p>
         <ProductGraph />
+        <DiagramBacklink id="product-ecosystem" />
       </section>
 
       <hr className={styles.divider} />
@@ -389,6 +392,9 @@ const openai = new OpenAI({ baseURL: "https://api.pura.xyz/v1" });`}</pre>
       {/* ═══════════ COMPARISON TABLE ═══════════ */}
       <section className={styles.section}>
         <SectionHead label="how it compares" color="var(--text-dim)" />
+        <p className={styles.solutionHeadline}>
+          A proxy can forward traffic. Pura does the harder thing: it turns provider choice, capacity awareness, and settlement into one observable economic system.
+        </p>
         <div style={{ overflowX: "auto" }}>
           <table className={styles.tbl}>
             <thead>
@@ -487,6 +493,7 @@ const openai = new OpenAI({ baseURL: "https://api.pura.xyz/v1" });`}</pre>
         <div className={styles.heroCtas}>
           <a href="/paper" className={styles.ctaSecondary}>paper →</a>
           <a href="/explainer" className={styles.ctaSecondary}>how it works →</a>
+          <a href="/pitch" className={styles.ctaSecondary}>pitch deck →</a>
           <a href="/docs" className={styles.ctaSecondary}>docs →</a>
           <a href="https://github.com/puraxyz/puraxyz" target="_blank" rel="noopener noreferrer" className={styles.ctaSecondary}>github →</a>
         </div>
