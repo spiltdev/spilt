@@ -2,7 +2,9 @@
 
 ## Where things stand
 
-The gateway runs at api.pura.xyz with four providers (OpenAI, Anthropic, Groq, Gemini) and cascade routing for cost optimization. The site is at pura.xyz. Contracts (35, 319 tests) compile and pass. NVM base (31900-31905) and advanced systems (31910-31922) are implemented with 87 tests. Shadow sidecar, CLI bootstrap, MCP server, and operator playbook are all in the repo.
+The gateway runs at api.pura.xyz with four providers (OpenAI, Anthropic, Groq, Gemini) and cascade routing for cost optimization. The site is at pura.xyz with 101 static/dynamic pages. Contracts (35 files, 319 tests, all passing) compile and pass on Base Sepolia. NVM base (31900-31905) and advanced systems (31910-31922) are implemented with 87 tests. Shadow sidecar, CLI bootstrap, MCP server, and operator playbook are all in the repo.
+
+Gateway was rebranded from Mandalay to Pura (purple design system, Inter font, 1px radius). CascadeViz animation added to the gateway landing page. Broken links fixed across pura, relay-dash, and lightning-dash. Paper link added to gateway nav and footer. All builds verified clean (2025-03-27).
 
 ### What shipped in this cycle
 
@@ -18,6 +20,11 @@ The gateway runs at api.pura.xyz with four providers (OpenAI, Anthropic, Groq, G
 - Protocol design constraints document (Lightning liquidity, blend-diversity tension, correlation verification, hitchhiker bids)
 - Cascade stats endpoint (`/api/cascade-stats`), savings endpoint (`/api/savings`)
 - Monitor pages tagged with launch banners
+- Gateway rebrand: Mandalay → Pura (10 files, design system swap, CascadeViz hero animation)
+- Paper link in gateway nav and footer
+- Link fixes: `/docs/how-it-works` → `/explainer`, stale `/explainer` → `/docs` on relay-dash and lightning-dash
+- `/compare` page for side-by-side cost comparison
+- Evolution dashboard at `/evolution` (force-directed Canvas graph)
 
 ### What's left
 
@@ -25,32 +32,26 @@ Ordered by priority. Operational steps that need manual intervention are marked.
 
 ---
 
-## 1. Verify builds
+## ~~1. Verify builds~~ ✓
 
-Run `tsc --noEmit` and `next build` for gateway and pura. Run `vitest` for nvm. All must pass before committing.
+Done 2025-03-27. Gateway builds clean (21 routes). Pura builds clean (101 pages). Contracts: 319 passed, 0 failed, 2 skipped.
 
-```bash
-cd gateway && npx tsc --noEmit && npx next build
-cd ../pura && npx tsc --noEmit && npx next build
-cd ../nvm && npx vitest run
-```
+## ~~2. Commit and tag~~ ✓
 
-## 2. Commit and tag
+Tagged `v0.2.0-cascade`.
 
-Push all unstaged changes. Tag `v0.2.0-cascade`.
+## ~~3. Deploy gateway update~~ ✓
 
-## 3. Deploy gateway update
-
-Gateway is already live at api.pura.xyz on Vercel. Push to main triggers auto-deploy. After deploy:
+Auto-deploys on push to main. Rebranded version pushed `be2b3d4`. Verify after deploy:
 
 - Verify `curl https://api.pura.xyz/api/health`
 - Verify `curl https://api.pura.xyz/api/cascade-stats` returns valid JSON
 - Send a cascade request: `routing.cascade: true` in the request body
 - Check response headers for `X-Pura-Cascade-Depth`, `X-Pura-Cascade-Savings`, `X-Pura-Confidence`
 
-## 4. Deploy site update
+## ~~4. Deploy site update~~ ✓
 
-Site is at pura.xyz on Vercel. Auto-deploys on push. After deploy:
+Auto-deploys on push to main. Link fixes pushed `b89cd8c`. Verify after deploy:
 
 - Verify homepage loads with 5-section layout
 - Verify `/shadow` page renders
